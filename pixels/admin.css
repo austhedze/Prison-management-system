@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2f;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #323554;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    position:fixed;
+    width:100%;
+    height:100px;
+
+}
+
+.sidebar {
+    width: 25%;
+    height: 100vh;
+    background-color: #2c2c3e;
+    float: left;
+    padding: 20px;
+    color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s;
+    position:fixed;
+    height:100%;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #323554;
+}
+
+.sidebar a:hover {
+    background-color: orangered;
+}
+
+.main-content {
+    margin-left: 20%;
+    padding: 20px;
+    transition: margin-left 0.3s;
+    background-color: #1e1e2f;
+}
+
+h1 {
+    color: whitesmoke;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.card table,
+.card th,
+.card td {
+    border: 1px solid #ddd;
+}
+
+.card th,
+.card td {
+    padding: 10px;
+    text-align: left;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.button.add {
+    background-color: green;
+}
+
+.button.delete {
+    background-color: orangered;
+}
+
+.button.update {
+    background-color: #001f3f;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        float: none;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        font-size: 18px;
+    }
+
+    .button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .card th,
+    .card td {
+        font-size: 14px;
+    }
+}
+

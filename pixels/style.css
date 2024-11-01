@@ -1,0 +1,67 @@
+body, html {
+    background-image: url('../images/coridour.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px; 
+    color: white;
+}
+
+#firstname, #lastname, #username, #password1, #confirmpass, #signup {
+    width: 90%;
+    border: none;
+    height: 25px;
+    border-radius: 10px;
+}
+
+input::placeholder{
+    color: white;
+    opacity: 1;
+}
+.signup-card {
+    text-align: center;
+    width: 400px;
+    background-color: black;
+    border-radius: 5%;
+    opacity: 0.9;
+
+}
+p {
+    color: orangered;
+}
+
+#firstname, #lastname, #username, #password1, #confirmpass {
+    background-color: lightgray;
+    opacity: 0.3;
+    border-radius: 10px;
+}
+#firstname, #lastname, #username, #password1, #confirmpass::after{
+    color:white;
+
+}
+
+#signup:hover{
+    background-color: orangered;
+    color: white;
+}
+.radio {
+color: white;
+text-align: center;
+}
+
+.sign-up-spacer {
+    height: 40px;
+}
+
