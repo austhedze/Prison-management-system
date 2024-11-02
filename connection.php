@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db = 'PMIS';
+$db = 'pmis';
 $user = 'root'; 
 $pass = '';
 
