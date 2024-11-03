@@ -360,8 +360,8 @@ if (isset($_POST['search'])) {
             <img src="icons/staff.png" alt="Add Staff" class="icon"> Staffs
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="#">
-            <img src="icons/chat.png" alt="Add Inmate Movements" class="icon">Inquiries
+        <a href="bot.php">
+            <img src="icons/chat.png" alt="Add Inmate Movements" class="icon">FAQs
         </a>
         <div class="spacer" style='height:30px'></div>
         <a href="logout.php" onclick="return confirm('Are You sure you want to LogOut?')">

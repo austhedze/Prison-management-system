@@ -499,10 +499,10 @@ h1 {
     $previous_cell = $row['previous_cell'];
     $new_cell = $row['new_cell'];
     $transfer_reason = $row['transfer_reason'];
-                $photo_path = $row['image_path']; // Image path
+                $inmate_image = $row['inmate_image']; // Image path
 
                 echo '<div class="card">
-                    <img src="' . $image_path . '" alt="Staff Image">
+                    <img src="' . $inmate_image . '" alt="inmate image">
                  
                     
                     <p><strong>inmate name:</strong> ' . $inmate_name . '</p>

@@ -12,7 +12,7 @@ if(isset($_GET['deleteID'])){
     if($result){
         echo '<script>
         alert("Prisoner Successfully deleted:");
-        window.location.href="admin_dashboard2.php";
+        window.location.href="admin_dashboard.php";
         </script>';
      
     } 

@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
             if ($result) {
                 echo '
                 <script>
-                alert("Prisoner information added successfully with image!");
+                alert("Prisoner information added successfully!");
                 window.location.href="admin_dashboard.php";
                 </script>
                 ';

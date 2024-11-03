@@ -13,7 +13,7 @@ $username = $_SESSION['username'];
 // Fetch user details from the database
 $sql = "SELECT * FROM users WHERE username = '$username' AND role ='admin'";
 $result = mysqli_query($conn, $sql);
-$user = mysqli_fetch_assoc($result);
+$admin = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -191,13 +191,13 @@ $user = mysqli_fetch_assoc($result);
             <div class="profile-container">
                 <div class="form-section">
                     <h2 style="color:grey">My Profile Information</h2>
-                    <p><strong style="color:grey">Username:</strong> <span style="color:wheat;"><?php echo $user['username']; ?></span></p>
-                    <p><strong style="color:grey">First Name:</strong> <span style="color:wheat"><?php echo $user['firstname']; ?></span></p>
-                    <p><strong style="color:grey">Last Name:</strong> <span style="color:wheat"><?php echo $user['lastname']; ?></spna></p>
+                    <p><strong style="color:grey">Username:</strong> <span style="color:wheat;"><?php echo $admin['username']; ?></span></p>
+                    <p><strong style="color:grey">First Name:</strong> <span style="color:wheat"><?php echo $admin['firstname']; ?></span></p>
+                    <p><strong style="color:grey">Last Name:</strong> <span style="color:wheat"><?php echo $admin['lastname']; ?></spna></p>
                     <a href="update_admin_profile.php" class="update-btn">Edit Profile</a>
                 </div>
                 <div>
-                    <img src="<?php echo $user['user_profile_picture'] && file_exists($user['user_profile_picture']) ? $user['user_profile_picture'] : 'icons/person.png'; ?>"
+                    <img src="<?php echo $admin['admin_profile_picture'] && file_exists($admin['admin_profile_picture']) ? $admin['admin_profile_picture'] : 'icons/person.png'; ?>"
                         class="avatar" alt="Avatar">
                 </div>
             </div>

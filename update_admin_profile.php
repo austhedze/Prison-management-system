@@ -218,7 +218,7 @@ if (isset($_POST['update'])) {
                         required>
 
                     <label for="profile_picture" style="color:whitesmoke">Profile Picture:</label>
-                    <input type="file" name="user_profile_picture">
+                    <input type="file" name="admin_profile_picture">
 
                     <button type="submit" name="update" style="background-color:grey" id="update-btn">Update Profile</button>
                 </form>

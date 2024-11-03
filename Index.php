@@ -6,13 +6,13 @@
     <body>
        
        
-    <h1> <img src="images/logo.jpg" class="logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRISON INFORMATION MANAGEMENT SYSTEM</h1>
+    <h1> <img src="images/logo.jpg" class="logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRISON MANAGEMENT INFORMATION SYSTEM</h1>
       <div class="welcome-text-spacer" style="height:18px"></div>
       <br><br><br>
 <center>
 
   <div class="index-card">
-  <P style="opacity: 0.8; font-size: 30px"><b><span style="color: white">Welcome users</span>,<span style="color:white"> sigIn or signup.....</span></b></P>
+  <P style="opacity: 0.8; font-size: 30px"><b><span style="color: white">Welcome user</span>,<span style="color:white"> sigIn or signup.....</span></b></P>
       <br><br>
        <center>
        <div class="buttons">
