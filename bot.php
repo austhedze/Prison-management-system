@@ -80,7 +80,7 @@ $username = $_SESSION['username'];
         width: 100%; 
         max-width: 600px; 
         background: rgba(0, 0, 0, 0.5);
-        border-radius: 20px; 
+        border-radius:  20px; 
         backdrop-filter: blur(10px); 
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
         overflow: hidden; 
@@ -101,7 +101,7 @@ $username = $_SESSION['username'];
 
     .message { 
         padding: 10px 10px; 
-        border-radius: 20px; 
+        border-radius: 20px 0px 20px 0px; 
         max-width: 75%; 
         word-wrap: break-word; 
         display: flex;
@@ -269,7 +269,7 @@ $username = $_SESSION['username'];
     <div id="chat-container">
     <div id="chatbox">
         <div class="message bot">
-            <span>Hello! How can I help you with prison-related queries today?</span>
+            <span>Hello <span style="color:orange"> <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?>! </span>How can I help you with prison-related queries today?</span>
             <img src="images/logo.jpg" alt="Bot Avatar" class="bot-avatar" />
         </div>
     </div>
@@ -282,23 +282,26 @@ $username = $_SESSION['username'];
 
 <script>
   const faqs = [
-    { keywords: ["who", "you"], answer: "I am PMIS chatbot to provide assistance with frequently asked questions related to prison management." },
+    { keywords: ["who", "your name"], answer: "I am Web-D Group3 Prison Management Information System chatbot created to provide assistance with frequently asked questions related to prison management." },
     { keywords: ["hi"], answer: "Yes, hello! How can I assist you today?" },
+      { keywords: ["yes"], answer: "fantanstic, you are eager to learn, ask more !" },
+    { keywords: ["okay"], answer: "nice, thank you very much for your understanding" },
     { keywords: ["what", "are", "the ", "mostly", "most", "frequent", "committed", "crimes"], answer: "frequently committed crimes include, theft, murder, smuggling and rape, however some recent research indicates that familily issues including divorce matters are at an alarmig late, how would mind learning more of this?" },
-    { keywords: ["who", "you", "made"], answer: "I was built by Web Dev Group 3 members: Upendo, Mirrium, Eliot, Lenzo, and Austin, and moses" },
+    { keywords: ["who", "created", "made"], answer: "I was built by Web Dev Group 3 members: Upendo, Mirrium, Eliot, Lenzo, Austin, and Moses" },
     { keywords: ["contact", "inmate"], answer: "Inmates can be contacted through written letters or during visitation hours. Phone calls may be available for certain inmates." },
     { keywords: ["visit", "when", "days", "inmate"], answer: "Visitation is generally available any day, but weekends may have limited access." },
-    { keywords: ["contact", "pmis", "staff"], answer: "You can contact any of the PMIS staff members for assistance." },
+    { keywords: ["contact", "pmis", "staff", "member"], answer: "You can contact any of the PMIS staff members for assistance." },
     { keywords: ["how many", "accounts"], answer: "You can have only one account in this system." },
     { keywords: ["hello", "hy", "ey", "pmis",], answer: "Hi there! Let's chat. How can I help?" },
-    { keywords: ["okay", "thanks ", "thank you" ], answer: "You are most welcome !" },
+    { keywords: ["okay", " thanks ", "thank you" ], answer: "You are most welcome !" },
+     { keywords: [ "what is your basic", "what is your fundamental", "what is your policy","can my sentence be reduced","handling inmate", "handle inmate", "structure", "basic", "fundamental", "policy" ], answer: "Sure am glad to help you with that, well For cases such murder and rape, for both gender sentence reduction remains unchanged, however it does for other types of crimes such as theft among others. This implies that if you are over 50 years of age your sentence slashes by half unless you committed rape or maurder.Moreover its slashes down by quater when you plead guity. was this response helpful ?" },
     { keywords: ["why", "how",], answer: "My knowledge is limited, consider contacting any staff member" },
     { keywords: ["visit", "inmate", "prisoner"], answer: "To visit an inmate, please submit a visitation request to the visitation manager." },
     { keywords: ["when", "not", "visit"], answer: "Visits may vary on holidays. Please check with the visitation office for holiday schedules." },
     { keywords: ["send", "packages", "inmate"], answer: "Packages are allowed only during approved dates and must contain items from the approved list." },
     { keywords: ["how", "release", "inmate"], answer: "Inmate release dates are based on sentence completion, or they may be eligible for parole based on behavior and other factors." },
     { keywords: ["who", "can", "visit"], answer: "Immediate family members, legal representatives, and approved contacts are generally allowed to visit inmates." },
-    { keywords: ["what", "can", "bring", "visit"], answer: "Please bring only ID and approved items. Personal belongings, like phones, are usually not allowed inside visitation areas." },
+    { keywords: ["what", "can", "bring", "visitor"], answer: "Please bring only ID and approved items. Personal belongings, like phones, are usually not allowed inside visitation areas." },
     { keywords: ["how", "send", "money",  "prisoner","inmate"], answer: "You can send money through an approved financial service or deposit it directly at the facility." },
     { keywords: ["can", "schedule", "appointment", "visit"], answer: "Appointments can be scheduled online or by calling the visitation office directly." },
     { keywords: ["where", "is", "inmate", "located"], answer: "You can inquire about an inmate's location through the inmate lookup service or by contacting the facility's administration." },
