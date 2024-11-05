@@ -37,21 +37,22 @@ if (isset($_POST['request'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Visit</title>
     <link href="pixels/admin.css" rel="stylesheet" type="text/css" />
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #2c2c3e;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #2c2c3e;
+        margin: 0;
+        padding: 0;
+    }
 
 
-    
+
     .sidebar {
         width: 20%;
         background-color: #2c2c3e;
@@ -76,7 +77,7 @@ if (isset($_POST['request'])) {
         padding: 4px;
         color: white;
         text-decoration: none;
-   
+
         border-radius: 4px;
         background-color: #323554;
         transition: background-color 0.3s;
@@ -91,150 +92,155 @@ if (isset($_POST['request'])) {
         width: 20px;
         height: 20px;
         margin-right: 20px;
-        margin-top:20px;
+        margin-top: 20px;
     }
 
+    .main-content {
+        margin-left: 270px;
+        padding: 40px;
+        background-color: #2c2c3e;
+    }
+
+    .container {
+        background-color: #323554;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .input-group label {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .button-group {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .button-group button {
+        background-color: #2c2c3e;
+        color: white;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .button-group button:hover {
+        background-color: #388E3C;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+    }
+
+    table th,
+    table td {
+        padding: 15px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+
+    table tr:hover {
+        background-color: black;
+        opacity: 0.5;
+    }
+
+    table td {
+        color: #333;
+    }
+
+    @media (max-width: 768px) {
         .main-content {
-            margin-left: 270px;
-            padding: 40px;
-            background-color: #2c2c3e;
+            margin-left: 0;
         }
 
-        .container {
-            background-color: #323554;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group label {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .input-group input {
+        .sidebar {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
+            height: auto;
+            position: relative;
         }
 
-        .button-group {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .button-group button {
-            background-color:#2c2c3e;
-            color: white;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .button-group button:hover {
-            background-color: #388E3C;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-        }
-
-        table th, table td {
-            padding: 15px;
-            border: 1px solid #ddd;
+        .sidebar a {
             text-align: left;
+            padding: 10px;
         }
 
-        table th {
-            background-color: #f4f4f4;
-            font-weight: bold;
+        .sidebar img {
+            width: 70px;
+            height: 70px;
         }
+    }
 
-        table tr:hover {
-            background-color: black;
-            opacity:0.5;
-        }
-
-        table td {
-            color: #333;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            .sidebar a {
-                text-align: left;
-                padding: 10px;
-            }
-            .sidebar img {
-                width: 70px;
-                height: 70px;
-            }
-        }
-        .icon {
-    width: 45px; 
-    height: 45px; 
-    margin-right: 5px; 
-    vertical-align: middle;
-}
-
+    .icon {
+        width: 45px;
+        height: 45px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
     </style>
 </head>
+
 <body>
 
     <!-- Sidebar -->
     <div class="sidebar">
-    <img src="images/logo.jpg" style="margin-left: 80px; width: 100px; height: 100px; border-radius: 45px;">
-    <div class="spacer" style="height: 20px;"></div>
-    <a href="user_dashboard.php">
-        <img src="icons/home.png" alt="My Visit Requests Icon" class="icon"> Home
-    </a>
-    <div class="spacer" style="height: 30px;"></div>
-    <a href="request_visit.php">
-        <img src="icons/request.png" alt="Visit Icon" class="icon"> Request Visit
-    </a>
-    <div class="spacer" style="height: 20px;"></div>
-    <a href="#">
-        <img src="icons/request.png" alt="My Visit Requests Icon" class="icon"> My Visit Requests
-    </a>
-    <div class="spacer" style="height: 20px;"></div>
-    <a href="logout.php">
-        <img src="icons/logout.png" alt="Logout Icon" class="icon"> Logout
-    </a>
-</div>
+        <img src="images/logo.jpg" style="margin-left: 80px; width: 100px; height: 100px; border-radius: 45px;">
+        <div class="spacer" style="height: 20px;"></div>
+        <a href="user_dashboard.php">
+            <img src="icons/home.png" alt="My Visit Requests Icon" class="icon"> Home
+        </a>
+        <div class="spacer" style="height: 30px;"></div>
+        <a href="request_visit.php">
+            <img src="icons/request.png" alt="Visit Icon" class="icon"> Request Visit
+        </a>
+        <div class="spacer" style="height: 20px;"></div>
+        <a href="#">
+            <img src="icons/request.png" alt="My Visit Requests Icon" class="icon"> My Visit Requests
+        </a>
+        <div class="spacer" style="height: 20px;"></div>
+        <a href="logout.php" onclick="return alert('Are you sure you want to sign-out?')">
+            <img src="icons/logout.png" alt="Logout Icon" class="icon"> Logout
+        </a>
+    </div>
 
 
     <!-- Main Content -->
     <div class="main-content">
-        
+
         <div class="container">
             <form method="POST">
                 <h2 style='color:grey'>Request a Visit</h2>
@@ -260,14 +266,15 @@ if (isset($_POST['request'])) {
                 </div>
 
                 <div class="button-group">
-                    <button type="submit" name="request" style='color:#fff; background-color:orangered'>Request Visit</button>
+                    <button type="submit" name="request" style='color:#fff; background-color:orangered'>Request
+                        Visit</button>
                 </div>
             </form>
         </div>
 
         <!-- Visit Requests Table -->
         <div class="container">
-            <h2 style='color:grey'>  My Visit Requests</h2>
+            <h2 style='color:grey'> My Visit Requests</h2>
             <table>
                 <thead>
                     <tr>
@@ -306,4 +313,5 @@ if (isset($_POST['request'])) {
     </div>
 
 </body>
+
 </html>

@@ -3,7 +3,7 @@ session_start();
 include 'connection.php';
 
 
-if ($_SESSION['role'] != 'admin') {
+if ($_SESSION['role'] != 'warder') {
     header('Location: login.php');
     exit;
 }
@@ -15,13 +15,13 @@ $username = $_SESSION['username'];
 // Fetch admin details from the database
 $sql = "SELECT * FROM users WHERE username = '$username'";
 $result = mysqli_query($conn, $sql);
-$admin = mysqli_fetch_assoc($result);
+$warder = mysqli_fetch_assoc($result);
 
 // Handle profile update
 if (isset($_POST['update'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    $profile_picture = $_FILES['admin_profile_picture'];
+    $profile_picture = $_FILES['warder_profile_picture'];
 
     // Upload profile picture
     if ($profile_picture['name']) {
@@ -30,14 +30,14 @@ if (isset($_POST['update'])) {
         move_uploaded_file($profile_picture["tmp_name"], $target_file);
     } else {
         // Keep existing picture if not updated
-        $target_file = $admin['admin_profile_picture']; 
+        $target_file = $admin['warder_profile_picture']; 
     }
 
     // Update admin information
-    $sql = "UPDATE users SET firstname='$firstname', lastname='$lastname', admin_profile_picture='$target_file' WHERE username='$username'";
+    $sql = "UPDATE users SET firstname='$firstname', lastname='$lastname', warder_profile_picture='$target_file' WHERE username='$username'";
     if (mysqli_query($conn, $sql)) {
         echo '<script>alert("Profile updated successfully!");</script>';
-        header('Location: admin.php'); 
+        header('Location: warder.php'); 
         exit;
     } else {
         echo '<script>alert("Error updating profile: ' . mysqli_error($conn) . '");</script>';
@@ -51,7 +51,7 @@ if (isset($_POST['update'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin Profile update -page </title>
+    <title>warder Profile update -page </title>
     <style>
 
     body {
@@ -180,17 +180,17 @@ if (isset($_POST['update'])) {
             <div class="spacer" style='height:5px'>
 
             </div>
-            <a href="admin.php">
+            <a href="admin_dashboard.php">
                 <img src="icons/dash.png" alt="Dashboard" class="icon"> Dashboard
             </a>
             <div class="spacer" style='height:30px'></div>
-            <a href="admin_profile.php">
-                <img src="icons/person.png" alt="Add Inmate" class="icon"> My Profile
+            <a href="adduser.php">
+                <img src="icons/add.png" alt="Add Inmate" class="icon"> Add Inmate
             </a>
             </a>
             <div class="spacer" style='height:30px'></div>
-            <a href="staffs.php">
-                <img src="icons/staff.png" alt="Add Staff" class="icon"> View Staff
+            <a href="add_staff.php">
+                <img src="icons/staff.png" alt="Add Staff" class="icon"> Add Staff
             </a>
             <div class="spacer" style='height:30px'></div>
             
@@ -203,22 +203,22 @@ if (isset($_POST['update'])) {
 
         <div class="content">
             <div class="avatar-container">
-                <img src="<?php echo $admin['admin_profile_picture'] ? htmlspecialchars($admin['warder_profile_picture']) : 'icons/person.png'; ?>"
+                <img src="<?php echo $warder['warder_profile_picture'] ? htmlspecialchars($warder['warder_profile_picture']) : 'icons/person.png'; ?>"
                     class="avatar" alt="Avatar">
             </div>
             <div class="form-section">
                 <h2 style="color:grey">Update Profile</h2>
                 <form method="POST" enctype="multipart/form-data">
                     <label for="firstname" style="color:whitesmoke">First Name:</label>
-                    <input type="text" name="firstname" value="<?php echo htmlspecialchars($admin['firstname']); ?>"
+                    <input type="text" name="firstname" value="<?php echo htmlspecialchars($warder['firstname']); ?>"
                         required>
 
                     <label for="lastname" style="color:whitesmoke" >Last Name:</label>
-                    <input type="text" name="lastname" value="<?php echo htmlspecialchars($admin['lastname']); ?>"
+                    <input type="text" name="lastname" value="<?php echo htmlspecialchars($warder['lastname']); ?>"
                         required>
 
                     <label for="profile_picture" style="color:whitesmoke">Profile Picture:</label>
-                    <input type="file" name="admin_profile_picture">
+                    <input type="file" name="warder_profile_picture">
 
                     <button type="submit" name="update" style="background-color:grey" id="update-btn">Update Profile</button>
                 </form>

@@ -1,5 +1,6 @@
 
  <?php
+ session_start();
 include 'connection.php';
 
 
@@ -15,10 +16,6 @@ if (isset($_POST['submit'])) {
     $release_date = $_POST['release_date'];
     $pleaded_guilty = $_POST['pleaded_guilty']; 
 
-
-
-  
-    
     $sql = "UPDATE `inmate` SET  first_name='$first_name', last_name='$last_name', sex='$sex', age='$age', offense ='$offense', sentence_years='$sentence_years', court_appearances = '$court_appearances', release_date= '$release_date', pleaded_guilty = '$pleaded_guilty' where id='$id'";
 
    $result = mysqli_query($conn, $sql);
@@ -27,7 +24,7 @@ if (isset($_POST['submit'])) {
     echo '
     <script>
     alert("Prisoner information Updateded Successfully!");
-    window.location.href="admin_dashboard.php"
+    window.location.href="warder.php"
     </script>
     ';
   

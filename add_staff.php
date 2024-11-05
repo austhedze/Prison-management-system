@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
         if ($result) {
             echo '<script>
                 alert("Staff member added successfully!");
-                window.location.href="admin_dashboard.php";
+                window.location.href="warder.php";
             </script>';
         } else {
             die(mysqli_error($conn));

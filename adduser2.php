@@ -1,13 +1,5 @@
 <?php
 include 'connection.php';
-session_start();
-
-if ($_SESSION['role'] != 'warder') {
-    header('Location: login.php');
-    exit;
-}
-
-$username = $_SESSION['username'];
 
 if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
@@ -20,8 +12,6 @@ if (isset($_POST['submit'])) {
     $release_date = $_POST['release_date'];
     $pleaded_guilty = ($_POST['pleaded_guilty'] == 'yes') ? 1 : 0;
     $reg_number = $_POST['reg_number'];
-
-
 
     // Image upload handling
     $target_dir = "uploads/"; // Folder where images will be saved
@@ -40,17 +30,10 @@ if (isset($_POST['submit'])) {
             $result = mysqli_query($conn, $sql);
 
             if ($result) {
-                // Prepare the log entry
-    $log_sql = "INSERT INTO inmate_addition_logs (reg_number, first_name, last_name, added_by) 
-    VALUES ('$reg_number', '$first_name', '$last_name', '{$_SESSION['username']}')";
-
-// Execute the log entry
-mysqli_query($conn, $log_sql);
-
                 echo '
                 <script>
                 alert("Prisoner information added successfully!");
-                window.location.href="warder.php";
+                window.location.href="admin_dashboard.php";
                 </script>
                 ';
             } else {
@@ -67,91 +50,89 @@ mysqli_query($conn, $log_sql);
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Inmate</title>
     <link href="pixels/admin.css" rel="stylesheet" type="text/css" />
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 20px;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
 
-    .container {
-        max-width: 600px;
-        margin: 0 auto;
-        background: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-    h2 {
-        text-align: center;
-        color: #333;
-    }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
 
-    .form-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
 
-    .input-group {
-        margin-bottom: 15px;
-    }
+        .input-group {
+            margin-bottom: 15px;
+        }
 
-    .input-group label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
-        color: #555;
-    }
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
 
-    .input-group input,
-    .input-group select,
-    .input-group textarea {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        box-sizing: border-box;
-        transition: border-color 0.3s;
-    }
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
 
-    .input-group input:focus,
-    .input-group select:focus,
-    .input-group textarea:focus {
-        border-color: #6c63ff;
-        outline: none;
-    }
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: #6c63ff;
+            outline: none;
+        }
 
-    .button-group {
-        grid-column: span 2;
-        text-align: center;
-    }
+        .button-group {
+            grid-column: span 2;
+            text-align: center;
+        }
 
-    .button-group button {
-        background-color: #6c63ff;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-    }
+        .button-group button {
+            background-color: #6c63ff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
 
-    .button-group button:hover {
-        background-color: #5754d6;
-    }
+        .button-group button:hover {
+            background-color: #5754d6;
+        }
     </style>
 </head>
-
 <body>
     <div class="container">
         <form method="POST" enctype="multipart/form-data">
@@ -227,5 +208,4 @@ mysqli_query($conn, $log_sql);
         </form>
     </div>
 </body>
-
 </html>

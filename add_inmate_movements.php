@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
                 echo '
                 <script>
                 alert("Prisoner information added successfully with image!");
-                window.location.href="admin_dashboard.php";
+                window.location.href="warder.php";
                 </script>
                 ';
             } else {

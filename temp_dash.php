@@ -22,6 +22,9 @@ $search_result = [];
 if (isset($_POST['search'])) {
     $reg_number = $_POST['reg_number'];
 
+
+
+    // search inmate by reg_number
     $sql = "SELECT * FROM inmate WHERE reg_number = '$reg_number'";
     $result = mysqli_query($conn, $sql);
 
@@ -67,6 +70,7 @@ if (isset($_POST['search'])) {
         background-color: #f4f4f9;
     }
 
+  
     .sidebar {
         width: 20%;
         background-color: #2c2c3e;
@@ -108,6 +112,7 @@ if (isset($_POST['search'])) {
         margin-right: 20px;
         margin-top:20px;
     }
+
     .main-section {
 
         margin-left: 20%;
@@ -166,6 +171,7 @@ if (isset($_POST['search'])) {
     .search-icon {
         position: absolute;
         right: 20px;
+     
         top: 175px;
         transform: translateY(50%);
         width: 25px;
@@ -176,7 +182,7 @@ if (isset($_POST['search'])) {
        
     }
 
-    
+   
     .result-card {
         background-color: #3b3b4f;
         color: white;
@@ -195,6 +201,7 @@ if (isset($_POST['search'])) {
         transform: scale(1.02);
     }
 
+   
     .result-card img {
         width: 350px;
         height: 200px;
@@ -216,6 +223,7 @@ if (isset($_POST['search'])) {
     }
    
 @media (max-width: 768px) {
+
     body {
         flex-direction: column;
     }
@@ -267,6 +275,7 @@ if (isset($_POST['search'])) {
         padding: 20px;
     }
 
+ 
     .input-container {
         flex-direction: column;
         width: 100%;
@@ -286,6 +295,7 @@ if (isset($_POST['search'])) {
         right: auto;
     }
 
+   
     .result-card {
         width: 100%;
         margin: 10px 0;
@@ -304,38 +314,7 @@ if (isset($_POST['search'])) {
         margin-right:30px;
 
     }
-    .result-card {
-    position: relative; 
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #3b3b4f;
-    opacity:0.8;
-    margin: 10px;
-}
 
-.cancel-btn {
-    position: absolute;
-    top: 5px; 
-    right: 5px; 
-    background-color: white;
-    color: orangered;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.cancel-btn:hover {
-    background-color: orangered;
-    color: white;
-}
     </style>
 </head>
 
@@ -360,8 +339,8 @@ if (isset($_POST['search'])) {
             <img src="icons/staff.png" alt="Add Staff" class="icon"> Staffs
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="bot.php">
-            <img src="icons/chat.png" alt="Add Inmate Movements" class="icon">Enquiries
+        <a href="#">
+            <img src="icons/chat.png" alt="Add Inmate Movements" class="icon">Inquiries
         </a>
         <div class="spacer" style='height:30px'></div>
         <a href="logout.php" onclick="return confirm('Are You sure you want to LogOut?')">
@@ -398,9 +377,7 @@ if (isset($_POST['search'])) {
 
             <?php if (!empty($search_result)) { ?>
             <?php foreach ($search_result as $inmate) { ?>
-
-                <div class="result-card">
-            <button class="cancel-btn" onclick="cancelBox(this)">&times;</button>
+            <div class="result-card">
                 <?php if (!empty($inmate['image_path'])) { ?>
                 <img src="<?php echo $inmate['image_path']; ?>" alt="Inmate Image">
                 <?php } else { ?>
@@ -435,19 +412,6 @@ if (isset($_POST['search'])) {
     }
 
     typeText(); 
-
-
-
-//cancel result box
-
-// Cancel result box
-function cancelBox(button) {
-    const resultBox = button.parentElement; // Get the parent of the button, which is the result-card
-    resultBox.style.display = "none"; // Hide the result card
-    resultBox.style.transition = 'all 2s'; // Optional: add transition if desired
-}
-
-
 </script>
 
 </body>

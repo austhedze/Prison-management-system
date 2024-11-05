@@ -11,9 +11,9 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 
 // Fetch user details from the database
-$sql = "SELECT * FROM users WHERE username = '$username' AND role ='admin'";
+$sql = "SELECT * FROM users WHERE username = '$username' AND role ='warder'";
 $result = mysqli_query($conn, $sql);
-$admin = mysqli_fetch_assoc($result);
+$warder = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -166,7 +166,7 @@ $admin = mysqli_fetch_assoc($result);
         <div class="spacer" style='height:5px'>
 
         </div>
-        <a href="admin.php">
+        <a href="admin_dashboard.php">
             <img src="icons/dash.png" alt="Dashboard" class="icon"> Dashboard
         </a>
         <div class="spacer" style='height:30px'></div>
@@ -175,8 +175,8 @@ $admin = mysqli_fetch_assoc($result);
         </a>
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="staffs.php">
-            <img src="icons/staff.png" alt="Add Staff" class="icon">View Staffs
+        <a href="add_staff.php">
+            <img src="icons/staff.png" alt="Add Staff" class="icon">Add  Staff
         </a>
         <div class="spacer" style='height:30px'></div>
         
@@ -191,13 +191,13 @@ $admin = mysqli_fetch_assoc($result);
             <div class="profile-container">
                 <div class="form-section">
                     <h2 style="color:grey">My Profile Information</h2>
-                    <p><strong style="color:grey">Username:</strong> <span style="color:wheat;"><?php echo $admin['username']; ?></span></p>
-                    <p><strong style="color:grey">First Name:</strong> <span style="color:wheat"><?php echo $admin['firstname']; ?></span></p>
-                    <p><strong style="color:grey">Last Name:</strong> <span style="color:wheat"><?php echo $admin['lastname']; ?></spna></p>
-                    <a href="update_admin_profile.php" class="update-btn">Edit Profile</a>
+                    <p><strong style="color:grey">Username:</strong> <span style="color:wheat;"><?php echo $warder['username']; ?></span></p>
+                    <p><strong style="color:grey">First Name:</strong> <span style="color:wheat"><?php echo $warder['firstname']; ?></span></p>
+                    <p><strong style="color:grey">Last Name:</strong> <span style="color:wheat"><?php echo $warder['lastname']; ?></spna></p>
+                    <a href="update_warder_profile.php" class="update-btn">Edit Profile</a>
                 </div>
                 <div>
-                    <img src="<?php echo $admin['admin_profile_picture'] && file_exists($admin['admin_profile_picture']) ? $admin['admin_profile_picture'] : 'icons/person.png'; ?>"
+                    <img src="<?php echo $warder['warder_profile_picture'] && file_exists($warder['warder_profile_picture']) ? $warder['warder_profile_picture'] : 'icons/person.png'; ?>"
                         class="avatar" alt="Avatar">
                 </div>
             </div>

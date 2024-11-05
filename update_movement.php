@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     if ($result) {
         echo "<script>
         alert('Inmate Movement Added Successfully');
-         window.location.href='admin_dashboard.php';</script>";
+         window.location.href='warder.php';</script>";
     } else {
         die(mysqli_error($conn));
     }

@@ -2,7 +2,7 @@
 include 'connection.php';
 session_start();
 
-if ($_SESSION['role'] != 'admin') {
+if ($_SESSION['role'] != 'warder') {
     header('Location: login.php');
     exit;
 }
@@ -10,9 +10,9 @@ if ($_SESSION['role'] != 'admin') {
 $username = $_SESSION['username'];
     
 // Fetch user details from the database
- $sql = "SELECT * FROM users WHERE username = '$username' AND role='admin'";
+ $sql = "SELECT * FROM users WHERE username = '$username' AND role='warder'";
  $result = mysqli_query($conn, $sql);
- $user = mysqli_fetch_assoc($result);
+ $warder = mysqli_fetch_assoc($result);
 
 
  // Fetch total inmates
@@ -33,162 +33,161 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Prison Management System</title>
+    <title>Warder Panel - Prison Management System</title>
     <link href="pixels/admin.css" rel="stylesheet" type="text/css" />
     <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1e1e2f;
+        margin: 0;
+        padding: 0;
+    }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e2f;
-    margin: 0;
-    padding: 0;
-}
-
-.header {
-    background-color: #323554;
-    padding: 20px;
-    color: white;
-    text-align: center;
-    position:fixed;
-    width:100%;
-    height:100px;
-
-}
-
-.sidebar {
-    width: 25%;
-    height: 100vh;
-    background-color: #2c2c3e;
-    float: left;
-    padding: 20px;
-    color: white;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    transition: width 0.3s;
-    position:fixed;
-    height:100%;
-    left:0;
-}
-
-.sidebar a {
-    display: block;
-    padding: 10px;
-    color: white;
-
-    text-decoration: none;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    background-color: #323554;
-}
-
-.sidebar a:hover {
-    background-color: orangered;
-}
-
-.main-content {
-    margin-left: 30%;
-    padding: 20px;
- 
-    transition: margin-left 0.3s;
-    background-color: #1e1e2f;
-}
-
-h1 {
-    color: whitesmoke;
-}
-
-.card {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card h2 {
-    margin-bottom: 10px;
-}
-
-.card table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.card table,
-.card th,
-.card td {
-    border: 1px solid #ddd;
-}
-
-.card th,
-.card td {
-    padding: 10px;
-    text-align: left;
-}
-
-.button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.button.add {
-    background-color: green;
-}
-
-.button.delete {
-    background-color: orangered;
-}
-
-.button.update {
-    background-color: #001f3f;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .sidebar {
+    .header {
+        background-color: #323554;
+        padding: 20px;
+        color: white;
+        text-align: center;
+        position: fixed;
         width: 100%;
-        height: auto;
-        float: none;
-        position: relative;
+        height: 100px;
+
+    }
+
+    .sidebar {
+        width: 25%;
+        height: 100vh;
+        background-color: #2c2c3e;
+        float: left;
+        padding: 20px;
+        color: white;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: width 0.3s;
+        position: fixed;
+        height: 100%;
+        left: 0;
+    }
+
+    .sidebar a {
+        display: block;
+        padding: 10px;
+        color: white;
+
+        text-decoration: none;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        background-color: #323554;
+    }
+
+    .sidebar a:hover {
+        background-color: orangered;
     }
 
     .main-content {
-        margin-left: 0;
-        padding: 10px;
-    }
-}
+        margin-left: 30%;
+        padding: 20px;
 
-@media (max-width: 576px) {
-    .header {
-        font-size: 18px;
+        transition: margin-left 0.3s;
+        background-color: #1e1e2f;
     }
 
-    .button {
-        padding: 8px 16px;
-        font-size: 14px;
+    h1 {
+        color: whitesmoke;
     }
 
     .card {
-        padding: 15px;
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .card h2 {
-        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .card table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .card table,
+    .card th,
+    .card td {
+        border: 1px solid #ddd;
     }
 
     .card th,
     .card td {
-        font-size: 14px;
+        padding: 10px;
+        text-align: left;
     }
-}
+
+    .button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .button.add {
+        background-color: green;
+    }
+
+    .button.delete {
+        background-color: orangered;
+    }
+
+    .button.update {
+        background-color: #001f3f;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 100%;
+            height: auto;
+            float: none;
+            position: relative;
+        }
+
+        .main-content {
+            margin-left: 0;
+            padding: 10px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .header {
+            font-size: 18px;
+        }
+
+        .button {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .card {
+            padding: 15px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+        }
+
+        .card th,
+        .card td {
+            font-size: 14px;
+        }
+    }
 
 
 
 
 
-/*----------------*/
+    /*----------------*/
     .card-container {
         display: grid;
 
@@ -196,8 +195,8 @@ h1 {
 
         gap: 15px;
         margin-top: 20px;
-      
-        
+
+
 
     }
 
@@ -279,7 +278,7 @@ h1 {
 
     .icon {
         width: 45px;
-        
+
         height: 45px;
         vertical-align: middle;
         margin-right: 8px;
@@ -366,15 +365,15 @@ h1 {
     <div class="main-content" style='  background-color: #1e1e2f;'>
 
         <div class="admin-header">
-        
+
             <div class="header-text">
-            
-                <h2>Welcome Admin, <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</h2>
+
+                <h2>Welcome Warden, <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</h2>
             </div>
-            <a href="admin_profile.php">
+            <a href="warder_profile.php">
 
                 <div>
-                    <img src="<?php echo $user['admin_profile_picture'] && file_exists($user['admin_profile_picture']) ? $user['admin_profile_picture'] : 'icons/person.png'; ?>"
+                    <img src="<?php echo $warder['warder_profile_picture'] && file_exists($warder['warder_profile_picture']) ? $warder['warder_profile_picture'] : 'icons/person.png'; ?>"
                         class="avatar" alt="Avatar">
                 </div>
             </a>
@@ -395,11 +394,12 @@ h1 {
             </div>
         </section>
 
-        
+
         <h1 class="section-title" style="font-size: 30px;color:grey; text-align: LEFT;">Available Inmates</h1>
 
         <div class="spacer" style='height:20px'></div>
         <div class="card-container">
+
             <?php
         $sql = "SELECT * FROM `inmate`";
         $result = mysqli_query($conn, $sql);
@@ -411,15 +411,28 @@ h1 {
                 $last_name = $row['last_name'];
                 $offense = $row['offense'];
                 $sentence_years = $row['sentence_years'];
+                $age = $row['age'];
+                $gender = $row['sex'];
                 $court_appearances = $row['court_appearances'];
                 $release_date = $row['release_date'];
+                $pleaded_guilty = $row['pleaded_guilty']; 
                 $reg_number = $row['reg_number'];
                 $image_path = $row['image_path']; // Image path
 
-                // Sentence reduction logic
-                $reduced_sentence = $row['pleaded_guilty'] ? $sentence_years * 0.75 : $sentence_years;
+         
 
-                echo '<div class="card">
+                                    // Apply sentence reduction rules
+                                    $reduced_sentence = $sentence_years;
+                                    if ($age >= 50 && $offense != 'rape' && $offense != 'murder') {
+                                        $reduced_sentence = $sentence_years / 2;
+                                    } elseif ($gender == 'Female') {
+                                        $reduced_sentence = $sentence_years / 2;
+                                    }
+
+                if ($pleaded_guilty == 'yes') {
+                    $reduced_sentence = $reduced_sentence * 0.75; // Reduce by 25%
+                }
+                 echo '<div class="card">
                     <img src="' . $image_path . '" alt="Inmate Image">
                     <h2>' . $first_name . ' ' . $last_name . '</h2>
                     <p><strong>Offense:</strong> ' . $offense . '</p>
@@ -523,7 +536,7 @@ h1 {
         </div>
     </div>
 
-    
+
 </body>
 
 </html>
