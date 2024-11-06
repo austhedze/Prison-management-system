@@ -1,6 +1,6 @@
     //open dialog box
     function openConfirmBox(event) {
-        event.preventDefault(); // Prevent the default link action
+        event.preventDefault();
         document.getElementById("confirmModal").style.display = "block";
       }
       
@@ -8,3 +8,13 @@
         document.getElementById("confirmModal").style.display = "none";
       }
       
+
+      function confirmLogout(event) {
+        event.preventDefault(); 
+        document.getElementById("confirmModal").style.display = "block";
+      }
+
+         
+      function closeLogout() {
+        document.getElementById("confirmModal").style.display = "none";
+      }

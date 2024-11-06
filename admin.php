@@ -337,10 +337,19 @@ $username = $_SESSION['username'];
             
                   </div>
 </a>
-<a href="update_logs.php" style="text-decoration: none; color: inherit; display:block">
+<a href="visitation_logs.php" style="text-decoration: none; color: inherit; display:block">
             <div class="stat-card">
+            <img src="icons/visitation.png" alt="Total Inmates Icon" class="icon">
+                <h3>Visitation logs</h3>
+
+            </div>
+</a>
+        </section>
+        <section>
+        <a href="update_logs.php" style="text-decoration: none; color: inherit; display:block">
+            <div class="stat-card" style="width:655px; justify-content:center; align-items:center">
             <img src="icons/updatelogs.png" alt="Total Inmates Icon" class="icon">
-                <h3>updating logs</h3>
+                <h3>Data manipulation logs</h3>
 
             </div>
 </a>

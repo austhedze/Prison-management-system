@@ -8,9 +8,16 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
     exit;
 }
 
-// Retrieve login logs
-$log_query = "SELECT * FROM login_attempts ORDER BY attempt_time DESC";
-$login_result = mysqli_query($conn, $log_query);
+// Clear logs if the button is clicked
+if (isset($_POST['clear_logs'])) {
+    $delete_sql = "DELETE FROM deletion_logs";
+    if (mysqli_query($conn, $delete_sql)) {
+        echo "<script>alert('All logs have been cleared successfully.');
+         window.location.href='delete_logs.php';</script>";
+    } else {
+        echo "<script>alert('Error clearing logs: " . mysqli_error($conn) . "');</script>";
+    }
+}
 
 // Retrieve deletion logs
 $deletion_log_query = "SELECT * FROM deletion_logs ORDER BY deletion_time DESC";
@@ -77,6 +84,20 @@ $deletion_result = mysqli_query($conn, $deletion_log_query);
             border-bottom: none;
         }
 
+        button {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        button:hover {
+            background-color: #c82333;
+        }
+
         .center-text {
             text-align: center;
         }
@@ -96,6 +117,9 @@ $deletion_result = mysqli_query($conn, $deletion_log_query);
 
 <h1>Deletion Logs</h1>
 <div class="table-container">
+    <form method="post">
+        <button type="submit" name="clear_logs">Clear Logs</button>
+    </form>
     <table>
         <thead>
             <tr>
@@ -120,4 +144,3 @@ $deletion_result = mysqli_query($conn, $deletion_log_query);
 
 </body>
 </html>
-

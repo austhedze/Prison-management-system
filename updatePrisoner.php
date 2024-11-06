@@ -1,8 +1,6 @@
-
- <?php
- session_start();
+<?php
+session_start();
 include 'connection.php';
-
 
 if (isset($_POST['submit'])) {
     $id = $_GET['updateID'];
@@ -15,31 +13,53 @@ if (isset($_POST['submit'])) {
     $court_appearances = $_POST['court_appearances'];
     $release_date = $_POST['release_date'];
     $pleaded_guilty = $_POST['pleaded_guilty']; 
+    $updated_by = $_SESSION['username'] ?? 'unknown_user'; // Get the logged-in user's username or set a default
 
-    $sql = "UPDATE `inmate` SET  first_name='$first_name', last_name='$last_name', sex='$sex', age='$age', offense ='$offense', sentence_years='$sentence_years', court_appearances = '$court_appearances', release_date= '$release_date', pleaded_guilty = '$pleaded_guilty' where id='$id'";
+    // Retrieve current data for comparison
+    $sql = "SELECT * FROM inmate WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    $current_data = mysqli_fetch_assoc($result);
 
-   $result = mysqli_query($conn, $sql);
+    // Prepare update query
+    $sql = "UPDATE inmate SET first_name='$first_name', last_name='$last_name', sex='$sex', age='$age', 
+            offense='$offense', sentence_years='$sentence_years', court_appearances='$court_appearances', 
+            release_date='$release_date', pleaded_guilty='$pleaded_guilty' WHERE id='$id'";
+    
+    if (mysqli_query($conn, $sql)) {
+        // Log the changes if the update is successful
+        $fields_to_check = [
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'sex' => $sex,
+            'age' => $age,
+            'offense' => $offense,
+            'sentence_years' => $sentence_years,
+            'court_appearances' => $court_appearances,
+            'release_date' => $release_date,
+            'pleaded_guilty' => $pleaded_guilty
+        ];
 
-  if($result){
-    echo '
-    <script>
-    alert("Prisoner information Updateded Successfully!");
-    window.location.href="warder.php"
-    </script>
-    ';
-  
-  }
+        foreach ($fields_to_check as $field => $new_value) {
+            $old_value = $current_data[$field];
+            if ($old_value != $new_value) {
+                // Log only if there's a change
+                $log_sql = "INSERT INTO inmate_update_log (inmate_id, field_updated, old_value, new_value, updated_by) 
+                            VALUES ('$id', '$field', '$old_value', '$new_value', '$updated_by')";
+                mysqli_query($conn, $log_sql);
+            }
+        }
 
-  else {
-    die(mysqli_error($conn));
-  }
-
+        echo '
+        <script>
+        alert("Prisoner information updated successfully!");
+        window.location.href="warder.php";
+        </script>
+        ';
+    } else {
+        die("Error updating record: " . mysqli_error($conn));
+    }
 }
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

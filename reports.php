@@ -213,7 +213,7 @@ margin-right: 8px;
         <img src="icons/logs.png" alt="Inmate Icon" class="nav-icon"> Logs
     </a>
     <div class="spacer" style='height:50px'></div><hr>
-    <a href="logout.php" onclick="openConfirmBox(event)" >
+    <a href="logout.php" onclick= "return confirm('You are about to be signned-out, continue?')" >
         <img src="icons/logout.png" alt="Reports Icon" class="nav-icon"> Logout
     </a>
 </nav>
@@ -237,6 +237,12 @@ margin-right: 8px;
                 <div class="stat-card">
                     <h3>Total Staffs</h3>
                     <p><?php echo $staffCount; ?></p>
+                </div>
+                <div class="stat-card" >
+                 <!-- <a > <h3 >Generate Report</h3></a> -->
+                 <button id="generateReportBtn" >Generate Report</button>
+
+                    <p></p>
                 </div>
             </section>
 
@@ -359,8 +365,13 @@ margin-right: 8px;
 
 
 function confirmAction() {
-  // Redirect to the desired page
+
   window.location.href = "staffs.php";
+}
+
+function confirmLogout(){
+
+    window.location.href="logout.php";
 }
 
     </script>
@@ -373,6 +384,10 @@ function confirmAction() {
     <button onclick="confirmAction()">Yes</button>
     <button onclick="closeConfirmBox()">No</button>
   </div>
-</div> 
+</div>
+  
+</script>
+
+
 </body>
 </html>
