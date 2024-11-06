@@ -203,7 +203,7 @@ if (isset($_POST['update'])) {
 
         <div class="content">
             <div class="avatar-container">
-                <img src="<?php echo $admin['admin_profile_picture'] ? htmlspecialchars($admin['warder_profile_picture']) : 'icons/person.png'; ?>"
+                <img src="<?php echo $admin['admin_profile_picture'] ? htmlspecialchars($admin['admin_profile_picture']) : 'icons/person.png'; ?>"
                     class="avatar" alt="Avatar">
             </div>
             <div class="form-section">

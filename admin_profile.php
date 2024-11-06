@@ -175,7 +175,7 @@ $admin = mysqli_fetch_assoc($result);
         </a>
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="staffs.php">
+        <a href="staffs.php" onclick='return confirm("You are Leaving Admin Panel, continue?")'>
             <img src="icons/staff.png" alt="Add Staff" class="icon">View Staffs
         </a>
         <div class="spacer" style='height:30px'></div>

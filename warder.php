@@ -341,6 +341,8 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
         font-size: 20px;
     }
     </style>
+    <link rel="stylesheet" href="pixels/openBox.css" type="text/css"/>
+    
 </head>
 
 <body>
@@ -348,7 +350,7 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 
     <div class="sidebar" style="background-color: #2c2c3e;">
 
-        <img src='icons/admin.png' style='width: 100px; height:100px; border-radius:45px'>
+        <img src='images/logo.jpg' style='width: 100px; height:100px; border-radius:45px'>
         <div class="spacer" style='height:50px'>
 
         </div>
@@ -369,7 +371,7 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
             <img src="icons/movement.png" alt="Add Inmate Movements" class="icon">Inmate Movements
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="logout.php" onclick="return confirm('Are You sure you want to LogOut?')">
+        <a href="logout.php" onclick="openConfirmBox(event)">
             <img src="icons/logout.png" alt="Logout" class="icon"> Logout
         </a>
     </div>
@@ -610,8 +612,22 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 </div>
     </div>
 
-
-
+<!-- Custom confirmation modal -->
+<div id="confirmModal" class="modal">
+  <div class="modal-content">
+    <p>You are about to sign out. Continue?</p>
+    <button onclick="confirmAction()">Yes</button>
+    <button onclick="closeConfirmBox()">No</button>
+  </div>
+</div> 
+<script>
+    
+function confirmAction() {
+  // Redirect to the desired page
+  window.location.href = "logout.php";
+}
+</script>
+<script src="scripts/openBox.js"></script>
 </body>
 
 </html>

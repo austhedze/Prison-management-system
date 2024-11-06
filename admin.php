@@ -277,7 +277,7 @@ $username = $_SESSION['username'];
         </a>
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="staffs.php">
+        <a href="staffs.php" onclick="return confirm('You are about to logout, Continue ?')">
             <img src="icons/staff.png" alt="Add Staff" class="icon"> View Staff
         </a>
         <div class="spacer" style='height:30px'></div>

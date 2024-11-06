@@ -182,16 +182,19 @@ height: 45px;
 vertical-align: middle;
 margin-right: 8px;
     }
-   
+ 
+
     </style>
+    <link rel="stylesheet" href="pixels/openBox.css" type="text/css"/>
 </head>
 <body>
     <div class="dashboard-container">
         
         <aside class="sidebar">
             <div class="logo">
-                <img src='icons/admin.png' style="width:150px; height:150px"/>
+                <img src='images/logo.jpg' style="width:100px; height:100px; border-radius:20px;"/>
             </div>
+            <div class="spacer" style="height:20px"></div>
             <nav class="sidebar-nav">
             <a href="#">
         <img src="icons/dash.png" alt="Cases Icon" class="nav-icon"> Dashboard
@@ -202,7 +205,7 @@ margin-right: 8px;
     </a>
     <div class="spacer" style='height:50px'></div>
     
-    <a href="staffs.php" onclick="return prompt('You are about to signOut, Continue?')">
+    <a href="staffs.php" onclick="openConfirmBox(event)">
         <img src="icons/staff.png" alt="Staff Icon" class="nav-icon"> View Staffs
     </a>
     <div class="spacer" style='height:50px'></div>
@@ -210,7 +213,7 @@ margin-right: 8px;
         <img src="icons/logs.png" alt="Inmate Icon" class="nav-icon"> Logs
     </a>
     <div class="spacer" style='height:50px'></div><hr>
-    <a href="logout.php" onclick="return prompt('You are about to signOut, Continue?')" >
+    <a href="logout.php" onclick="openConfirmBox(event)" >
         <img src="icons/logout.png" alt="Reports Icon" class="nav-icon"> Logout
     </a>
 </nav>
@@ -249,6 +252,8 @@ margin-right: 8px;
             </section>
         </main>
     </div>
+
+   
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -349,6 +354,25 @@ margin-right: 8px;
             }
         });
     });
+
+
+
+
+function confirmAction() {
+  // Redirect to the desired page
+  window.location.href = "staffs.php";
+}
+
     </script>
+    <script src="scripts/openBox.js"></script>
+    
+<!-- Custom confirmation modal -->
+<div id="confirmModal" class="modal">
+  <div class="modal-content">
+    <p>You are about to sign out. Continue?</p>
+    <button onclick="confirmAction()">Yes</button>
+    <button onclick="closeConfirmBox()">No</button>
+  </div>
+</div> 
 </body>
 </html>
