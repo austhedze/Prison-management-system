@@ -77,6 +77,7 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
         .dashboard-container {
             display: flex;
             height: 100vh;
+       
         }
         .sidebar {
             width: 250px;
@@ -85,7 +86,8 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
             color: #ddd;
             display: flex;
             flex-direction: column;
-            height:100%;
+            height:900px;
+          
         }
         .logo h2 {
             color: #f58a42;
@@ -180,6 +182,7 @@ height: 45px;
 vertical-align: middle;
 margin-right: 8px;
     }
+   
     </style>
 </head>
 <body>
@@ -187,27 +190,27 @@ margin-right: 8px;
         
         <aside class="sidebar">
             <div class="logo">
-                <h2>PrisonMgmt</h2>
+                <img src='icons/admin.png' style="width:150px; height:150px"/>
             </div>
             <nav class="sidebar-nav">
             <a href="#">
         <img src="icons/dash.png" alt="Cases Icon" class="nav-icon"> Dashboard
     </a>
-    <div class="spacer" style='height:40px'></div>
+    <div class="spacer" style='height:50px'></div>
     <a href="admin_profile.php">
         <img src="icons/person.png" alt="Inmate Icon" class="nav-icon"> My Profile
     </a>
-    <div class="spacer" style='height:40px'></div>
+    <div class="spacer" style='height:50px'></div>
     
     <a href="staffs.php" onclick="return prompt('You are about to signOut, Continue?')">
         <img src="icons/staff.png" alt="Staff Icon" class="nav-icon"> View Staffs
     </a>
-    <div class="spacer" style='height:40px'></div>
+    <div class="spacer" style='height:50px'></div>
     <a href="admin.php">
         <img src="icons/logs.png" alt="Inmate Icon" class="nav-icon"> Logs
     </a>
-    <div class="spacer" style='height:40px'></div>
-    <a href="logout.php" onclick="return prompt('You are about to signOut, Continue?')">
+    <div class="spacer" style='height:50px'></div><hr>
+    <a href="logout.php" onclick="return prompt('You are about to signOut, Continue?')" >
         <img src="icons/logout.png" alt="Reports Icon" class="nav-icon"> Logout
     </a>
 </nav>
