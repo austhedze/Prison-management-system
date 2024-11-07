@@ -1,5 +1,3 @@
-
-
 <?php
 include 'connection.php';
 session_start();
@@ -60,112 +58,130 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reports</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Global Styles */
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #1e1e2f;
-            color: #ddd;
-        }
-        .dashboard-container {
-            display: flex;
-            height: 100vh;
-       
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #2c2c3e;
-            padding: 20px;
-            color: #ddd;
-            display: flex;
-            flex-direction: column;
-            height:900px;
-          
-        }
-        .logo h2 {
-            color: #f58a42;
-            text-align: center;
-        }
-        .sidebar-nav a {
-            color: #ddd;
-            text-decoration: none;
-            padding: 10px 20px;
-            display: block;
-            margin: 10px 0;
-            background-color: #3c3c4e;
-            border-radius: 8px;
-        }
-        .sidebar-nav a:hover {
-            background-color: orangered;
-        }
-        .main-content {
-            flex-grow: 1;
-            padding: 20px;
-            background-color: #262637;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-        }
-        .greeting {
-            font-size: 1.5em;
-        }
-        .profile-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-        .stats {
-            display: flex;
-            gap: 20px;
-            padding: 20px 0;
-        }
-        .stat-card {
-            flex: 1;
-            background-color: #3c3c4e;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            color: #f58a42;
-        }
-        .charts {
-            display: flex;
-            gap: 20px;
-            padding: 20px 0;
-        }
-        .card {
-            background-color: #3c3c4e;
-            flex: 1;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .actions {
-            padding: 20px 0;
-            display: flex;
-            gap: 20px;
-        }
-        .action-button {
-            background-color: #f58a42;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1em;
-        }
-        .action-button:hover {
-            background-color: #d4743c;
-        }
-        
+    
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #1e1e2f;
+        color: #ddd;
+    }
+
+    .dashboard-container {
+        display: flex;
+        height: 100vh;
+
+    }
+
+    .sidebar {
+        width: 250px;
+        background-color: #2c2c3e;
+        padding: 20px;
+        color: #ddd;
+        display: flex;
+        flex-direction: column;
+        height: 900px;
+
+    }
+
+    .logo h2 {
+        color: #f58a42;
+        text-align: center;
+    }
+
+    .sidebar-nav a {
+        color: #ddd;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: block;
+        margin: 10px 0;
+        background-color: #3c3c4e;
+        border-radius: 8px;
+    }
+
+    .sidebar-nav a:hover {
+        background-color: orangered;
+    }
+
+    .main-content {
+        flex-grow: 1;
+        padding: 20px;
+        background-color: #262637;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    .greeting {
+        font-size: 1.5em;
+    }
+
+    .profile-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .stats {
+        display: flex;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .stat-card {
+        flex: 1;
+        background-color: #3c3c4e;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        color: #f58a42;
+    }
+
+    .charts {
+        display: flex;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .card {
+        background-color: #3c3c4e;
+        flex: 1;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .actions {
+        padding: 20px 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    .action-button {
+        background-color: #f58a42;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    .action-button:hover {
+        background-color: #d4743c;
+    }
+
     .icon {
         width: 45px;
 
@@ -173,59 +189,62 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
         vertical-align: middle;
         margin-right: 8px;
     }
+
     .sidebar img {
-        width:45px;
-        height:45px;
+        width: 45px;
+        height: 45px;
         width: 45px;
 
-height: 45px;
-vertical-align: middle;
-margin-right: 8px;
+        height: 45px;
+        vertical-align: middle;
+        margin-right: 8px;
     }
- 
-
     </style>
-    <link rel="stylesheet" href="pixels/openBox.css" type="text/css"/>
+    <link rel="stylesheet" href="pixels/openBox.css" type="text/css" />
 </head>
+
 <body>
     <div class="dashboard-container">
-        
+
         <aside class="sidebar">
             <div class="logo">
-                <img src='images/logo.jpg' style="width:100px; height:100px; border-radius:20px;"/>
+                <img src='images/logo.jpg' style="width:100px; height:100px; border-radius:20px;" />
             </div>
             <div class="spacer" style="height:20px"></div>
             <nav class="sidebar-nav">
-            <a href="#">
-        <img src="icons/dash.png" alt="Cases Icon" class="nav-icon"> Dashboard
-    </a>
-    <div class="spacer" style='height:50px'></div>
-    <a href="admin_profile.php">
-        <img src="icons/person.png" alt="Inmate Icon" class="nav-icon"> My Profile
-    </a>
-    <div class="spacer" style='height:50px'></div>
-    
-    <a href="staffs.php" onclick="openConfirmBox(event)">
-        <img src="icons/staff.png" alt="Staff Icon" class="nav-icon"> View Staffs
-    </a>
-    <div class="spacer" style='height:50px'></div>
-    <a href="admin.php">
-        <img src="icons/logs.png" alt="Inmate Icon" class="nav-icon"> Logs
-    </a>
-    <div class="spacer" style='height:50px'></div><hr>
-    <a href="logout.php" onclick= "return confirm('You are about to be signned-out, continue?')" >
-        <img src="icons/logout.png" alt="Reports Icon" class="nav-icon"> Logout
-    </a>
-</nav>
+                <a href="#">
+                    <img src="icons/dash.png" alt="Cases Icon" class="nav-icon"> Dashboard
+                </a>
+                <div class="spacer" style='height:50px'></div>
+                <a href="admin_profile.php">
+                    <img src="icons/person.png" alt="Inmate Icon" class="nav-icon"> My Profile
+                </a>
+                <div class="spacer" style='height:50px'></div>
+
+                <a href="assign_role.php">
+                    <img src="icons/roles.png" alt="Staff Icon" class="nav-icon"> Assign Roles
+                </a>
+                <div class="spacer" style='height:50px'></div>
+                <a href="admin.php">
+                    <img src="icons/logs.png" alt="Inmate Icon" class="nav-icon"> Logs
+                </a>
+                <div class="spacer" style='height:50px'></div>
+                <hr>
+                <a href="logout.php" onclick="return confirm('You are about to be signned-out, continue?')">
+                    <img src="icons/logout.png" alt="Reports Icon" class="nav-icon"> Logout
+                </a>
+            </nav>
 
         </aside>
 
         <main class="main-content">
             <header class="header">
-                <div class="greeting"> <p>Welcome , <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</p>
+                <div class="greeting">
+                    <p>Welcome , <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</p>
                 </div>
                 <div class="profile">
-                    <img src="<?php echo $admin['admin_profile_picture'] && file_exists($admin['admin_profile_picture']) ? $admin['admin_profile_picture'] : 'icons/person.png'; ?>" alt="Profile" class="profile-icon">
+                    <img src="<?php echo $admin['admin_profile_picture'] && file_exists($admin['admin_profile_picture']) ? $admin['admin_profile_picture'] : 'icons/person.png'; ?>"
+                        alt="Profile" class="profile-icon">
                 </div>
             </header>
 
@@ -238,12 +257,7 @@ margin-right: 8px;
                     <h3>Total Staffs</h3>
                     <p><?php echo $staffCount; ?></p>
                 </div>
-                <div class="stat-card" >
-                 <!-- <a > <h3 >Generate Report</h3></a> -->
-                 <button id="generateReportBtn" >Generate Report</button>
-
-                    <p></p>
-                </div>
+               
             </section>
 
             <section class="charts">
@@ -259,10 +273,10 @@ margin-right: 8px;
         </main>
     </div>
 
-   
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const ctx = document.getElementById("casePieChart").getContext("2d");
 
         function getRandomColor() {
@@ -364,30 +378,30 @@ margin-right: 8px;
 
 
 
-function confirmAction() {
+    function confirmAction() {
 
-  window.location.href = "staffs.php";
-}
+        window.location.href = "staffs.php";
+    }
 
-function confirmLogout(){
+    function confirmLogout() {
 
-    window.location.href="logout.php";
-}
-
+        window.location.href = "logout.php";
+    }
     </script>
     <script src="scripts/openBox.js"></script>
-    
-<!-- Custom confirmation modal -->
-<div id="confirmModal" class="modal">
-  <div class="modal-content">
-    <p>You are about to sign out. Continue?</p>
-    <button onclick="confirmAction()">Yes</button>
-    <button onclick="closeConfirmBox()">No</button>
-  </div>
-</div>
-  
-</script>
+
+    <!-- Custom confirmation modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <p>You are about to sign out. Continue?</p>
+            <button onclick="confirmAction()">Yes</button>
+            <button onclick="closeConfirmBox()">No</button>
+        </div>
+    </div>
+
+    </script>
 
 
 </body>
+
 </html>

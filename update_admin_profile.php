@@ -87,7 +87,7 @@ if (isset($_POST['update'])) {
         color: white;
         text-decoration: none;
         border-radius: 4px;
-        background-color: #323554;
+        background-color: #3c3c4e;
         transition: background-color 0.3s;
         font-size: 16px;
     }

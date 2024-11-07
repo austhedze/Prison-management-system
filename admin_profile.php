@@ -58,7 +58,7 @@ $admin = mysqli_fetch_assoc($result);
         text-decoration: none;
    
         border-radius: 4px;
-        background-color: #323554;
+        background-color: #3c3c4e;
         transition: background-color 0.3s;
         font-size: 16px;
     }
@@ -170,8 +170,8 @@ $admin = mysqli_fetch_assoc($result);
             <img src="icons/dash.png" alt="Dashboard" class="icon"> Dashboard
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="request_visit.php">
-            <img src="icons/add.png" alt="Add Inmate" class="icon"> Add Inmate
+        <a href="admin.php">
+            <img src="icons/logs.png" alt="Add Inmate" class="icon"> Logs
         </a>
         </a>
         <div class="spacer" style='height:30px'></div>

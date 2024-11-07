@@ -449,19 +449,23 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
                         $reg_number = $row['reg_number'];
                         $photo_path = $row['image_path']; 
 
-                        // Apply sentence reduction rules
-                        $reduced_sentence = $sentence_years;
-                        if ($age >= 50 && $offense != 'rape' && $offense != 'murder') {
-                            $reduced_sentence = $sentence_years / 2;
-                        } elseif ($gender == 'female') {
-                            $reduced_sentence = $sentence_years / 2;
-                        }
+                    
 
-    // Apply reduction for pleading guilty (sentence slashed by a quarter)
-    if ($pleaded_guilty == 'yes') {
-        $reduced_sentence = $reduced_sentence * 0.75; // Reduce by 25%
+    //pply sentence red.rule
+    
+    $reduced_sentence = $sentence_years;
+
+    if ($age >= 50 && $offense != 'rape' || $offense != 'murder') {
+        $reduced_sentence = $sentence_years / 2;
+    } elseif ($gender == 'Female') {
+        $reduced_sentence = $sentence_years / 2;
     }
-
+    
+    if ($pleaded_guilty == 'yes') {
+        $reduced_sentence *= 0.75;
+    }
+    
+    
 
                         echo '<tr>
                         <td>  <img src="' . $photo_path . '" alt="Staff Image" style="width:50px; height:50px"></td>

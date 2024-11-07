@@ -10,7 +10,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 'warder') {
 
 if (isset($_GET['deleteID'])) {
     $id = intval($_GET['deleteID']); // Ensure the ID is an integer to prevent injection
-    $admin_username = mysqli_real_escape_string($conn, $_SESSION['username']); // Escape admin username
+    $admin_username = mysqli_real_escape_string($conn, $_SESSION['username']); //escp admin username
     $ip_address = mysqli_real_escape_string($conn, $_SERVER['REMOTE_ADDR']); // Escape IP address
 
     // Delete the inmate record

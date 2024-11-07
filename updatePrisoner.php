@@ -180,7 +180,7 @@ if (isset($_POST['submit'])) {
                 <select id="sex" name="sex" required>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
-                    <option value="Other">Other</option>
+                    
                 </select>
             </div>
 

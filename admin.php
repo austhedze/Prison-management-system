@@ -67,7 +67,7 @@ $username = $_SESSION['username'];
         text-decoration: none;
         margin-bottom: 10px;
         border-radius: 4px;
-        background-color: #323554;
+        background-color: #3c3c4e;
     }
 
     .sidebar a:hover {
@@ -222,11 +222,11 @@ $username = $_SESSION['username'];
     display: flex;
     gap: 20px;
     padding: 20px 0;
-    justify-content: flex-start; /* Aligns cards to the left */
+    justify-content: flex-start; 
 }
 
 .stat-card {
-    width: 300px; /* Set a fixed width */
+    width: 300px; 
     background-color: #3c3c4e;
     padding: 20px;
     border-radius: 8px;
@@ -249,7 +249,7 @@ $username = $_SESSION['username'];
 
     }
     .stat-card img.icon {
-    width: 70px; /* Adjust as needed */
+    width: 70px;
     height: 70px;
     margin-right: 10px;
     left:0;
