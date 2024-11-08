@@ -262,7 +262,10 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
                     <h3>Total Staffs</h3>
                     <p><?php echo $staffCount; ?></p>
                 </div>
-               
+                <a onclick=" return confirm('continue downloading report?')" style="display:block; text-decoration:none " href="gen_rep.php"><div class="stat-card"  style="height:85px">
+                    <h3>Genereate Report</h3>
+                   
+                </div></a>
             </section>
 
             <section class="charts">

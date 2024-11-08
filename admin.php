@@ -453,18 +453,36 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 
     //pply sentence red.rule
     
-    $reduced_sentence = $sentence_years;
+    // $reduced_sentence = $sentence_years;
 
-    if ($age >= 50 && $offense != 'rape' || $offense != 'murder') {
-        $reduced_sentence = $sentence_years / 2;
-    } elseif ($gender == 'Female') {
-        $reduced_sentence = $sentence_years / 2;
-    }
+    // if ($age >= 50 && $offense != 'rape' || $offense != 'murder') {
+    //     $reduced_sentence = $sentence_years / 2;
+    // } elseif ($gender == 'Female') {
+    //     $reduced_sentence = $sentence_years / 2;
+    // }
     
-    if ($pleaded_guilty == 'yes') {
-        $reduced_sentence *= 0.75;
-    }
+    //if ($pleaded_guilty == 'yes') {
+       //  $reduced_sentence *= 0.75;
+     //}
     
+    //  // Apply sentence reduction rule
+      $reduced_sentence = $sentence_years;
+
+    //  // Apply age and offense reduction if condtns are met
+      if ($age >= 50 && $offense != 'rape' && $offense != 'murder') {
+         $reduced_sentence = $sentence_years / 2;
+    }
+
+    //  // Apply gender-based reduction for females
+      if ($gender == 'Female') {
+          $reduced_sentence = min($reduced_sentence, $sentence_years / 2);
+      }
+
+     // Apply 25% reduction if pleaded guilty
+      if ($pleaded_guilty == 'yes') {
+          $reduced_sentence *= 0.75;
+      }
+
     
 
                         echo '<tr>
