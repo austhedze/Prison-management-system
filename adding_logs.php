@@ -3,7 +3,7 @@ include 'connection.php';
 session_start();
 
 // Ensure only admin can view this page
-if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 'main_admin') {
     header('Location: login.php');
     exit;
 }
@@ -38,7 +38,7 @@ $deletion_result = mysqli_query($conn, $deletion_log_query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Inmate Addition Logs</title>
+    <title>Main Admin Panel - Inmate Addition Logs</title>
     <style>
         body {
             font-family: Arial, sans-serif;

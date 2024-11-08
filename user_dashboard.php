@@ -295,7 +295,7 @@ if (isset($_POST['search'])) {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        border: 3px solid lightgreen;
+        border: 1px solid lightgreen;
         display: block;
         float: right;
         right: 0;

@@ -11,9 +11,9 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 
 // Fetch user details from the database
-$sql = "SELECT * FROM users WHERE username = '$username' AND role ='warder'";
+$sql = "SELECT * FROM users WHERE username = '$username' AND role ='main_admin'";
 $result = mysqli_query($conn, $sql);
-$warder = mysqli_fetch_assoc($result);
+$main_admin = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ $warder = mysqli_fetch_assoc($result);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>warder View Profile</title>
+    <title>main admin View Profile</title>
     <style>
 
     body {
@@ -58,7 +58,7 @@ $warder = mysqli_fetch_assoc($result);
         text-decoration: none;
    
         border-radius: 4px;
-        background-color: #323554;
+        background-color: #3c3c4e;
         transition: background-color 0.3s;
         font-size: 16px;
     }
@@ -166,17 +166,17 @@ $warder = mysqli_fetch_assoc($result);
         <div class="spacer" style='height:5px'>
 
         </div>
-        <a href="admin_dashboard.php">
+        <a href="main_admin.php">
             <img src="icons/dash.png" alt="Dashboard" class="icon"> Dashboard
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="request_visit.php">
-            <img src="icons/add.png" alt="Add Inmate" class="icon"> Add Inmate
+        <a href="main_admin_logs.php">
+            <img src="icons/logs.png" alt="Add Inmate" class="icon"> Logs
         </a>
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="add_staff.php">
-            <img src="icons/staff.png" alt="Add Staff" class="icon">Add  Staff
+        <a href="staffs.php" onclick='return confirm("You are Leaving Admin Panel, continue?")'>
+            <img src="icons/staff.png" alt="Add Staff" class="icon">View Staffs
         </a>
         <div class="spacer" style='height:30px'></div>
         
@@ -191,13 +191,13 @@ $warder = mysqli_fetch_assoc($result);
             <div class="profile-container">
                 <div class="form-section">
                     <h2 style="color:grey">My Profile Information</h2>
-                    <p><strong style="color:grey">Username:</strong> <span style="color:wheat;"><?php echo $warder['username']; ?></span></p>
-                    <p><strong style="color:grey">First Name:</strong> <span style="color:wheat"><?php echo $warder['firstname']; ?></span></p>
-                    <p><strong style="color:grey">Last Name:</strong> <span style="color:wheat"><?php echo $warder['lastname']; ?></spna></p>
-                    <a href="update_warder_profile.php" class="update-btn">Edit Profile</a>
+                    <p><strong style="color:grey">Username:</strong> <span style="color:wheat;"><?php echo $main_admin['username']; ?></span></p>
+                    <p><strong style="color:grey">First Name:</strong> <span style="color:wheat"><?php echo $main_admin['firstname']; ?></span></p>
+                    <p><strong style="color:grey">Last Name:</strong> <span style="color:wheat"><?php echo $main_admin['lastname']; ?></spna></p>
+                    <a href="update_main_admin_profile.php" class="update-btn">Edit Profile</a>
                 </div>
                 <div>
-                    <img src="<?php echo $warder['warder_profile_picture'] && file_exists($warder['warder_profile_picture']) ? $warder['warder_profile_picture'] : 'icons/person.png'; ?>"
+                    <img src="<?php echo $main_admin['main_admin_profile_picture'] && file_exists($main_admin['main_admin_profile_picture']) ? $main_admin['main_admin_profile_picture'] : 'icons/person.png'; ?>"
                         class="avatar" alt="Avatar">
                 </div>
             </div>

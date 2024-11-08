@@ -3,7 +3,7 @@ include 'connection.php';
 session_start();
 
 // Ensure only admin can view this page
-if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 'main_admin') {
     header('Location: login.php');
     exit;
 }

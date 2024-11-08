@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
         if ($result) {
             echo '<script>
                 alert("Staff member added successfully!");
-                window.location.href="warder.php";
+                window.location.href="admin.php";
             </script>';
         } else {
             die(mysqli_error($conn));
@@ -169,7 +169,8 @@ if (isset($_POST['submit'])) {
                 <div class="input-group">
                     <label for="role">Role</label>
                     <select id="role" name="role" required>
-                        <option value="Warder">Warder</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Main Admin">Main Admin</option>
                         <option value="Visitation Manager">Visitation Manager</option>
                     </select>
                 </div>
@@ -184,7 +185,7 @@ if (isset($_POST['submit'])) {
                     <select id="gender" name="gender" required>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Other">Other</option>
+                     
                     </select>
                 </div>
 

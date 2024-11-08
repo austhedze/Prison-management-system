@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $target_file = $target_dir . basename($_FILES["inmate_image"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Check if the uploaded file is an image
+    //Check if the uploaded file is an image
     $check = getimagesize($_FILES["inmate_image"]["tmp_name"]);
     if ($check !== false) {
         // Move the uploaded file to the server
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
                 echo '
                 <script>
                 alert("Prisoner information added successfully!");
-                window.location.href="admin_dashboard.php";
+                window.location.href="admin.php";
                 </script>
                 ';
             } else {
@@ -154,7 +154,7 @@ if (isset($_POST['submit'])) {
                     <select id="sex" name="sex" required>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Other">Other</option>
+                    
                     </select>
                 </div>
 

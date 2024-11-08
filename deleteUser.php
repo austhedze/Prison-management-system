@@ -2,8 +2,8 @@
 include 'connection.php';
 session_start();
 
-// Ensure the user is logged in and has the right permissions
-if (!isset($_SESSION['username']) || $_SESSION['role'] != 'warder') {
+// Ensures the user is loggged in and has the right permissions
+if (!isset($_SESSION['username']) || $_SESSION['role'] != 'admin') {
     header('Location: login.php');
     exit;
 }
@@ -27,7 +27,7 @@ if (isset($_GET['deleteID'])) {
         
         echo '<script>
         alert("Prisoner Successfully deleted.");
-        window.location.href="warder.php";
+        window.location.href="admin.php";
         </script>';
     } else {
         die("Error deleting record: " . mysqli_error($conn));

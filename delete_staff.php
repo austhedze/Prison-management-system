@@ -12,7 +12,7 @@ if(isset($_GET['deleteID'])){
     if($result){
         echo '<script>
         alert("Staff member Successfully deleted:");
-        window.location.href="warder.php";
+        window.location.href="admin.php";
         </script>';
      
     } 

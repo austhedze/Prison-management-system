@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2024 at 04:47 PM
+-- Generation Time: Nov 08, 2024 at 12:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -94,19 +94,9 @@ CREATE TABLE `inmate` (
 --
 
 INSERT INTO `inmate` (`id`, `first_name`, `last_name`, `sex`, `cases_committed`, `photo_path`, `age`, `offense`, `sentence_years`, `court_appearances`, `release_date`, `pleaded_guilty`, `reg_number`, `image_path`, `date_added`) VALUES
-(78, 'Austin', 'Thedzengwa', 'Male', NULL, NULL, 60, 'murder', 34, 5, '2024-11-11', '1', 'bit/030/22', 'uploads/IMG-20240825-WA0003.jpg', '2024-11-05 14:39:48'),
-(79, 'usher', 'lasten', 'Male', NULL, NULL, 60, 'murder', 34, 5, '2024-11-22', '1', 'bit/030/22', 'uploads/smag.jpg', '2024-11-05 14:39:48'),
-(81, 'aron', 'phiri', 'Female', NULL, NULL, 20, 'murder', 34, 5, '2024-11-13', '1', 'bit/030/22', 'uploads/IMG-20240707-WA0008.jpg', '2024-11-05 14:39:48'),
-(82, 'tas', 'viper', 'Male', NULL, NULL, 34, 'theft', 45, 4, '2024-11-27', '1', 'bit/028/22', 'uploads/IMG-20240729-WA0000.jpg', '2024-11-05 14:39:48'),
-(83, 'thez', 'dev', 'Male', NULL, NULL, 24, 'theft', 45, 4, '2024-11-13', '0', 'bit/028/22', 'uploads/smag.jpg', '2024-11-05 14:39:48'),
-(84, 'Scott', 'Davins', 'Male', NULL, NULL, 24, 'smuggle', 45, 4, '2024-11-15', '1', 'bit/030/22', 'uploads/maya.jfif', '2024-11-05 14:39:48'),
-(85, 'Austin', 'Thedzengwa', 'Male', NULL, NULL, 34, 'robery', 45, 4, '2024-11-20', '1', 'bit/034/22', 'uploads/IMG-20240729-WA0000.jpg', '2024-11-05 14:39:48'),
-(86, 'john', 'phiri', 'Male', NULL, NULL, 34, 'phishing', 45, 4, '2024-11-20', '1', 'bit/034/22', 'uploads/IMG-20240824-WA0012.jpg', '2024-11-05 14:39:48'),
-(87, 'drugman', 'jones', 'Female', NULL, NULL, 45, 'murder', 78, 5, '2024-12-06', '1', 'cis/031/22', 'uploads/female-pris.jpg', '2024-11-05 16:06:05'),
-(88, 'xavier', 'viper', 'Male', NULL, NULL, 24, 'theft', 2, 2, '2024-11-27', '0', 'cis/031/22', 'uploads/IMG-20240814-WA0001.jpg', '2024-11-05 16:07:39'),
-(89, 'xazap', 'deaor', 'Female', NULL, NULL, 34, 'robery', 7, 4, '2024-11-28', '1', 'bit/029/22', 'uploads/logo.jpg', '2024-11-05 16:11:17'),
-(90, 'lameck', 'nsomba', 'Male', NULL, NULL, 23, 'robery', 23, 3, '2024-11-21', '1', 'bit/028/22', 'uploads/IMG-20240707-WA0008.jpg', '2024-11-05 16:12:21'),
-(91, 'lackson', 'lungu', 'Male', NULL, NULL, 34, 'theft', 4, 3, '2024-11-13', '1', 'bit/030/22', 'uploads/IMG-20240814-WA0001.jpg', '2024-11-05 16:36:34');
+(91, 'agness', 'zimba', 'Female', NULL, NULL, 90, 'theft', 77, 5, '2024-11-10', 'yes', 'bit/030/22', 'uploads/IMG-20240814-WA0001.jpg', '2024-11-05 16:36:34'),
+(93, 'lackson', 'lungu', 'Male', NULL, NULL, 34, 'rape', 4, 3, '2024-11-12', '1', 'bit/030/21', 'uploads/inmate.jpg', '2024-11-07 01:42:24'),
+(94, 'viper', 'zimba', 'Male', NULL, NULL, 45, 'rape', 4, 3, '2024-11-17', '0', 'bit/030/21', 'uploads/IMG-20240729-WA0000.jpg', '2024-11-07 01:43:29');
 
 -- --------------------------------------------------------
 
@@ -130,12 +120,12 @@ CREATE TABLE `inmatemanagement` (
 --
 
 INSERT INTO `inmatemanagement` (`id`, `inmate_name`, `disciplinary_records`, `previous_cell`, `new_cell`, `transfer_reason`, `created_at`, `inmate_image`) VALUES
-(10, 'dickson', 'ty', '12', '490', '7uhhhh', '2024-10-31 10:57:57', NULL),
-(11, 'drugman jones', 'drugs and theft', '23', '78', 'violence and xyz reasons', '2024-11-02 21:03:23', 'uploads/IMG-20240814-WA0001.jpg'),
 (12, 'wnayamcizi', 'xyz', '23', '73', 'xyz', '2024-11-02 21:04:42', 'uploads/smag.jpg'),
 (13, 'wnayamcizi', 'yewye', '23', '73', 'hdehed', '2024-11-02 21:12:24', 'uploads/female-pris.jpg'),
 (14, 'frankson', 'smuggling', '12', '45', 'violence and xyz reasons', '2024-11-02 21:13:52', 'uploads/IMG-20240707-WA0008.jpg'),
-(15, 'dickson', 'smuggling', '12', '490', 'violence and xyz reasons', '2024-11-02 21:21:40', 'uploads/inmate.jpg');
+(15, 'dickson', 'smuggling', '12', '490', 'violence and xyz reasons', '2024-11-02 21:21:40', 'uploads/inmate.jpg'),
+(17, 'dickson', 'zxy', '12', '55', 'yzx', '2024-11-07 22:53:39', 'uploads/IMG-20240824-WA0012.jpg'),
+(18, 'AUSTIN', 'xyz', '23', '45', '49', '2024-11-08 10:25:23', 'uploads/female-pris.jpg');
 
 -- --------------------------------------------------------
 
@@ -152,24 +142,22 @@ CREATE TABLE `inmate_addition_logs` (
   `added_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `inmate_addition_logs`
+-- Table structure for table `inmate_update_log`
 --
 
-INSERT INTO `inmate_addition_logs` (`log_id`, `reg_number`, `first_name`, `last_name`, `date_added`, `added_by`) VALUES
-(7, 'bit/030/22', 'usher', 'lasten', '2024-11-04 23:51:48', 'may@gmail.com'),
-(8, 'bit/030/22', 'usherx', 'lasten', '2024-11-05 00:01:11', 'may@gmail.com'),
-(9, 'bit/030/22', 'aron', 'phiri', '2024-11-05 12:44:19', 'may@gmail.com'),
-(10, 'bit/028/22', 'tas', 'viper', '2024-11-05 12:45:41', 'may@gmail.com'),
-(11, 'bit/028/22', 'thez', 'dev', '2024-11-05 12:46:50', 'may@gmail.com'),
-(12, 'bit/030/22', 'Scott', 'Davins', '2024-11-05 12:47:42', 'may@gmail.com'),
-(13, 'bit/034/22', 'Austin', 'Thedzengwa', '2024-11-05 13:06:15', 'may@gmail.com'),
-(14, 'bit/034/22', 'john', 'phiri', '2024-11-05 13:08:03', 'may@gmail.com'),
-(15, 'cis/031/22', 'drugman', 'jones', '2024-11-05 16:06:05', 'may@gmail.com'),
-(16, 'cis/031/22', 'xavier', 'viper', '2024-11-05 16:07:39', 'may@gmail.com'),
-(17, 'bit/029/22', 'xazap', 'deaor', '2024-11-05 16:11:18', 'may@gmail.com'),
-(18, 'bit/028/22', 'lameck', 'nsomba', '2024-11-05 16:12:21', 'may@gmail.com'),
-(19, 'bit/030/22', 'lackson', 'lungu', '2024-11-05 16:36:34', 'may@gmail.com');
+CREATE TABLE `inmate_update_log` (
+  `log_id` int(11) NOT NULL,
+  `inmate_id` int(11) NOT NULL,
+  `field_updated` varchar(50) DEFAULT NULL,
+  `old_value` text DEFAULT NULL,
+  `new_value` text DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_by` varchar(255) DEFAULT NULL,
+  `log_date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -190,7 +178,13 @@ CREATE TABLE `login_attempts` (
 --
 
 INSERT INTO `login_attempts` (`id`, `username`, `attempt_time`, `status`, `ip_address`) VALUES
-(100, 'admin@this.com', '2024-11-05 15:33:07', 'success', '::1');
+(214, 'admin@thezdev.com', '2024-11-08 10:40:14', 'success', '::1'),
+(215, 'visit@manager.com', '2024-11-08 10:48:43', 'success', '::1'),
+(216, 'admin@thezdev.com', '2024-11-08 10:53:05', 'success', '::1'),
+(217, 'visit@manager.com', '2024-11-08 10:54:40', 'success', '::1'),
+(218, 'newuser@pmsi.com', '2024-11-08 11:10:01', 'success', '::1'),
+(219, 'visit@manager.com', '2024-11-08 11:25:35', 'success', '::1'),
+(220, 'adminmachine@loop.com', '2024-11-08 11:28:40', 'success', '::1');
 
 -- --------------------------------------------------------
 
@@ -219,13 +213,13 @@ CREATE TABLE `staffmanagement` (
 --
 
 INSERT INTO `staffmanagement` (`id`, `first_name`, `last_name`, `role`, `age`, `gender`, `phone`, `email`, `hire_date`, `disciplinary_records`, `created_at`, `staff_first_name`, `image_path`) VALUES
-(18, NULL, 'abdul', 'Warder', 45, 'Male', '0988353336', 'upendo@gmail.com', '2024-10-23', NULL, '2024-10-31 09:43:48', 'tas', 'uploads/IMG-20240729-WA0000.jpg'),
-(19, NULL, 'Thedzengwa', 'Visitation Manager', 22, 'Male', '0997141793', 'lenzotech@gmail.com', '2024-10-30', NULL, '2024-10-31 11:00:31', 'Austin', 'uploads/IMG-20240825-WA0003.jpg'),
+(19, NULL, 'Thedzengwa', 'Visitation Manager', 56, 'Male', '0997141793', 'thedzengwaaustin@gmail.com', '2024-11-28', NULL, '2024-10-31 11:00:31', 'Austin', 'uploads/IMG-20240825-WA0003.jpg'),
 (21, NULL, 'teamsSister', 'Visitation Manager', 28, 'Female', '0997141793', 'lenzotech@gmail.com', '2024-11-29', NULL, '2024-11-01 06:46:45', 'sister', 'uploads/team-sis.jpg'),
 (22, NULL, 'belekesi', 'Warder', 27, 'Male', '0997141743', 'lenzotech@gmail.com', '2024-11-19', NULL, '2024-11-01 06:52:06', 'lenz0', 'uploads/ceo.jpg'),
 (24, NULL, 'Mlelemba', 'Warder', 20, 'Male', '0997141793', 'maya@pmis.com', '2024-11-29', NULL, '2024-11-01 07:01:36', 'mayamiko', 'uploads/maya.jfif'),
 (25, NULL, 'dev', 'Warder', 12, 'Male', '0986876211', 'thezdev0@gmail.com', '2024-11-20', NULL, '2024-11-03 06:52:28', 'thez', 'uploads/IMG-20240814-WA0001.jpg'),
-(26, NULL, 'dev', 'Warder', 89, 'Male', '0986876211', 'thezdev0@gmail.com', '2024-11-28', NULL, '2024-11-03 23:15:08', 'thez', 'uploads/inmate.jpg');
+(26, NULL, 'dev', 'Warder', 89, 'Male', '0986876211', 'thezdev0@gmail.com', '2024-11-28', NULL, '2024-11-03 23:15:08', 'thez', 'uploads/inmate.jpg'),
+(28, NULL, 'zimba', '', 78, 'Female', '0886430247', 'chimxy@jahma.com', '2024-11-18', NULL, '2024-11-07 22:46:10', 'agness', 'uploads/cor2.jpg');
 
 -- --------------------------------------------------------
 
@@ -251,33 +245,30 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('user','admin','warder','visitation_manager') NOT NULL,
+  `role` enum('user','main_admin','admin','visitation_manager') NOT NULL,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `confirmPassword` varchar(50) NOT NULL,
-  `admin_profile_picture` varchar(255) DEFAULT NULL,
+  `main_admin_profile_picture` varchar(255) DEFAULT NULL,
   `user_profile_picture` varchar(255) DEFAULT NULL,
-  `warder_profile_picture` varchar(255) DEFAULT NULL
+  `admin_profile_picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`, `firstname`, `lastname`, `confirmPassword`, `admin_profile_picture`, `user_profile_picture`, `warder_profile_picture`) VALUES
-(17, 'bit-028-22@must.ac.mw', '$2y$10$5E16f7RUwTM5VwMirzq.B.ax/JRZEXz0R/.sYrNxyD52Ag1pxJ0Di', 'user', 'Austin', 'Thedzengwa', '', NULL, NULL, NULL),
-(18, 'admin@thezdev.com', '$2y$10$TROEyVtjwlQutZTizL7wFerpsscFzGGD8Y9cWVViYCEiVbDoOF/rm', 'admin', 'admin', '@dev', '', 'Images/IMG-20240707-WA0008.jpg', NULL, NULL),
-(19, 'chipo@dev.com', '$2y$10$leLsKDyBNB1lNX/k/dylSOnsiCOx/GNXjDD1Edt36yhnUwUO5f.wW', '', 'chiposa', 'chiomba', '', NULL, NULL, NULL),
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `firstname`, `lastname`, `confirmPassword`, `main_admin_profile_picture`, `user_profile_picture`, `admin_profile_picture`) VALUES
+(17, 'bit-028-22@must.ac.mw', '$2y$10$5E16f7RUwTM5VwMirzq.B.ax/JRZEXz0R/.sYrNxyD52Ag1pxJ0Di', 'visitation_manager', 'Austin', 'Thedzengwa', '', NULL, NULL, NULL),
+(18, 'admin@thezdev.com', '$2y$10$TROEyVtjwlQutZTizL7wFerpsscFzGGD8Y9cWVViYCEiVbDoOF/rm', 'user', 'admin', '@dev', '', 'Images/IMG-20240707-WA0008.jpg', 'Images/smag.jpg', NULL),
 (20, 'upendo@gmail.com', '$2y$10$zEwD6HwRRdGirpmBW5ir1uuAvmDj.SOjJmJ.IM1wZghYerdV7rX/q', 'user', 'upendo', 'mzumala', '', NULL, NULL, NULL),
-(21, 'getu@me.com', 'password', 'warder', 'getrude', 'Thedzengwa', '', NULL, NULL, NULL),
 (22, 'user@pmis.com', '$2y$10$ccia07dzhQnfVO8.jjABE.xs0PaxGTsfsyroVz/Yl6DQQ75YGmez.', 'user', 'austin', 'Thedzengwar', '', NULL, 'Images/IMG-20240824-WA0007.jpg', NULL),
-(23, 'pemphero@gmail.com', '$2y$10$zy.MfSLDzIaW0EzJ1DEQrucf..vKsaW9/C.vuTEvwO2Dsl.pveUsS', 'admin', 'ya1', 'y', '', 'Images/IMG-20240814-WA0001.jpg', NULL, NULL),
-(24, 'visit@pmis.com', '$2y$10$hFZgKc5woRD8KUefIbX7Ye3NRc6gItOfN7AiC.0A6XtDYC.wxzFlW', 'visitation_manager', 'visit', 'pmis', '', NULL, NULL, NULL),
-(25, 'may@gmail.com', '$2y$10$LFAPqByDC9033YnBVhypOuO9XxlpDJYAO6q77vjbYMohyIhN.RFla', 'warder', '<br /><b>Warning</b>:  Undefined variable $warder ', '<br /><b>Warning</b>:  Undefined variable $warder ', '', NULL, 'Images/smag.jpg', 'Images/female-pris.jpg'),
 (26, 'chipo@pmis.com', '$2y$10$QQxKZE37zeiSZuyn0Ej.zugvgPApn9b.DpYdQAJ/au0jUhinfOlnW', 'user', 'chiposa', 'chiomba', '', NULL, 'Images/IMG-20240729-WA0000.jpg', NULL),
-(27, 'mvalo@gmail.com', '$2y$10$2In2hKgYGs2I..dhWMD7VOQS7mH9Bc1/Y9c5FKexdU.nFPou.N2U2', 'user', 'beatrice', 'mvalo', '', NULL, NULL, NULL),
-(28, 'austin@gmail.com', '$2y$10$NODR5vHbRcRTh5UFV1MZcO7I6b5QMZTZPMLLVq2/sDdeZSafuZTJO', 'warder', 'Austin', 'Thedzengwa', '', NULL, 'Images/IMG-20240825-WA0003.jpg', NULL),
-(29, 'admin@this.com', '$2y$10$k.eOFms0K87YHqgowBHv0.A6tAk5iXogZuCJuhp5U9xZdy1sxZ.dC', 'admin', 'moses', 'ngoma', '', 'Images/IMG-20240824-WA0007.jpg', NULL, 'Images/IMG-20240707-WA0008.jpg');
+(28, 'austin@gmail.com', '$2y$10$NODR5vHbRcRTh5UFV1MZcO7I6b5QMZTZPMLLVq2/sDdeZSafuZTJO', 'admin', 'Austin', 'Thedzengwa', '', NULL, 'Images/IMG-20240825-WA0003.jpg', NULL),
+(29, 'admin@this.com', '$2y$10$k.eOFms0K87YHqgowBHv0.A6tAk5iXogZuCJuhp5U9xZdy1sxZ.dC', 'user', 'moses', 'ngoma', '', 'Images/female-pris.jpg', NULL, 'Images/IMG-20240707-WA0008.jpg'),
+(30, 'newuser@pmsi.com', '$2y$10$quEk2wm1ZyUp247GE32ctODTp2r8f/xAMeNHnmrupYwjtxPv3h3ZC', 'main_admin', 'new', 'user', '', 'Images/IMG-20240814-WA0001.jpg', 'Images/side.png', NULL),
+(31, 'visit@manager.com', '$2y$10$O/YGdxjOjJrb0dSSE98ijeiAl6OOzOHBpnbVNlz/fXx/nbifCXlBO', 'visitation_manager', 'visit', 'manager', '', NULL, NULL, NULL),
+(32, 'adminmachine@loop.com', '$2y$10$/J9ltJ2E84hreKwq0jGn.OqxpRwvNhce2JJv8G00emvFcLNoJ3QMu', 'admin', 'adminx', 'machine', '', NULL, NULL, 'Images/IMG-20240707-WA0008.jpg');
 
 -- --------------------------------------------------------
 
@@ -304,12 +295,8 @@ CREATE TABLE `visits` (
 --
 
 INSERT INTO `visits` (`id`, `inmate_name`, `visitor_name`, `visit_date`, `visit_time`, `status`, `reason`, `created_at`, `visitor_username`, `user_id`, `username`) VALUES
-(29, 'BLESSINGS THEDZENGWA', 'austin', '2024-10-11', '18:48:00', 'approved', NULL, '2024-10-24 12:44:44', NULL, NULL, 'bit-028-22@must.ac.mw'),
-(30, 'wnayamcizi', 'getrude', '2024-10-04', '13:56:00', 'rejected', 'sorry agness zimba, we are not currently available', '2024-10-31 20:53:02', NULL, NULL, 'user@pmis.com'),
-(31, 'AUSTIN', 'jones', '2024-11-14', '11:37:00', 'rejected', 'no are not avialbale this time ', '2024-11-02 09:33:45', NULL, NULL, 'user@pmis.com'),
-(32, 'AUSTIN', 'mayamiko', '2024-11-22', '12:29:00', 'rejected', 'we are not available for now', '2024-11-02 10:27:01', NULL, NULL, 'may@gmail.com'),
-(33, 'AUSTIN', 'chiposa chiomba', '2024-11-15', '19:40:00', 'rejected', 'sorry sorry chipo, we are not currently available', '2024-11-05 13:40:53', NULL, NULL, 'chipo@pmis.com'),
-(34, 'AUSTIN1', 'chiposa chiomba', '2024-11-08', '15:46:00', 'pending', NULL, '2024-11-05 13:42:23', NULL, NULL, 'chipo@pmis.com');
+(1, 'AUSTIN1', 'chiposa chiomba', '2024-11-25', '18:23:00', 'rejected', 'we wil be coming to u soon', '2024-11-06 14:23:46', NULL, NULL, 'chipo@pmis.com'),
+(2, 'AUSTIN1', 'chiposa chiomba', '2024-11-05', '15:47:00', 'pending', NULL, '2024-11-08 10:48:08', NULL, NULL, 'admin@thezdev.com');
 
 --
 -- Indexes for dumped tables
@@ -343,6 +330,12 @@ ALTER TABLE `inmatemanagement`
 -- Indexes for table `inmate_addition_logs`
 --
 ALTER TABLE `inmate_addition_logs`
+  ADD PRIMARY KEY (`log_id`);
+
+--
+-- Indexes for table `inmate_update_log`
+--
+ALTER TABLE `inmate_update_log`
   ADD PRIMARY KEY (`log_id`);
 
 --
@@ -383,7 +376,7 @@ ALTER TABLE `visits`
 -- AUTO_INCREMENT for table `deletion_logs`
 --
 ALTER TABLE `deletion_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `faq`
@@ -395,31 +388,37 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `inmate`
 --
 ALTER TABLE `inmate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `inmatemanagement`
 --
 ALTER TABLE `inmatemanagement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `inmate_addition_logs`
 --
 ALTER TABLE `inmate_addition_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `inmate_update_log`
+--
+ALTER TABLE `inmate_update_log`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
 
 --
 -- AUTO_INCREMENT for table `staffmanagement`
 --
 ALTER TABLE `staffmanagement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `update_logs`
@@ -431,13 +430,13 @@ ALTER TABLE `update_logs`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

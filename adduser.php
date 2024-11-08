@@ -2,7 +2,7 @@
 include 'connection.php';
 session_start();
 
-if ($_SESSION['role'] != 'warder') {
+if ($_SESSION['role'] != 'admin') {
     header('Location: login.php');
     exit;
 }
@@ -50,7 +50,7 @@ mysqli_query($conn, $log_sql);
                 echo '
                 <script>
                 alert("Prisoner information added successfully!");
-                window.location.href="warder.php";
+                window.location.href="admin.php";
                 </script>
                 ';
             } else {
@@ -173,7 +173,7 @@ mysqli_query($conn, $log_sql);
                     <select id="sex" name="sex" required>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Other">Other</option>
+                        
                     </select>
                 </div>
 

@@ -22,7 +22,7 @@ $admin = mysqli_fetch_assoc($result);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>warder View Profile</title>
+    <title>admin View Profile</title>
     <style>
 
     body {
@@ -58,7 +58,7 @@ $admin = mysqli_fetch_assoc($result);
         text-decoration: none;
    
         border-radius: 4px;
-        background-color: #3c3c4e;
+        background-color: #323554;
         transition: background-color 0.3s;
         font-size: 16px;
     }
@@ -166,17 +166,17 @@ $admin = mysqli_fetch_assoc($result);
         <div class="spacer" style='height:5px'>
 
         </div>
-        <a href="admin.php">
+        <a href="admin_dashboard.php">
             <img src="icons/dash.png" alt="Dashboard" class="icon"> Dashboard
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="admin.php">
-            <img src="icons/logs.png" alt="Add Inmate" class="icon"> Logs
+        <a href="request_visit.php">
+            <img src="icons/add.png" alt="Add Inmate" class="icon"> Add Inmate
         </a>
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="staffs.php" onclick='return confirm("You are Leaving Admin Panel, continue?")'>
-            <img src="icons/staff.png" alt="Add Staff" class="icon">View Staffs
+        <a href="add_staff.php">
+            <img src="icons/staff.png" alt="Add Staff" class="icon">Add  Staff
         </a>
         <div class="spacer" style='height:30px'></div>
         

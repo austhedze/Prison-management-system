@@ -157,14 +157,15 @@ if (isset($_POST['visit_request'])) {
         <img src="images/logo.jpg" alt="Logo">
         <div class="spacer" style="height: 50px;"></div>
 
-        <a href="#">
-            <img src="icons/visit.png" alt="Dashboard" class="icon"> Visitation
+        <a href="#" style="height:50px">
+            <img src="icons/visit.png" alt="Dashboard" class="icon" > Visitation
         </a>
-     
-        <a href="#">
-            <img src="icons/manage1.png" alt="Manage Visits" class="icon"> Manage Visits
+        <div class="spacer" style="height:50px"></div>
+        <a href="#" style="height:50px">
+            <img src="icons/manage1.png" alt="Manage Visits" class="icon" > Manage Visits
         </a>
-        <a href="logout.php" onclick="return confirm('Are you sure you want to logout?')">
+        <div class="spacer" style="height:50px"></div>
+        <a href="logout.php" onclick="return confirm('Are you sure you want to logout?')" style="height:50px; position:fixed; bottom:0; width:250px">
             <img src="icons/logout.png" alt="Logout" class="icon"> Logout
         </a>
     </div>

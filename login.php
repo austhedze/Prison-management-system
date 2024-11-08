@@ -56,10 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             mysqli_query($conn, $log_query);
 
             // Redirect based on user role
-            if ($row['role'] == 'admin') {
-                header('Location: reports.php');
-            } elseif ($row['role'] == 'warder') {
-                header('Location: warder.php');
+            if ($row['role'] == 'main_admin') {
+                header('Location: main_admin.php');
+            } elseif ($row['role'] == 'admin') {
+                header('Location: admin.php');
             } elseif ($row['role'] == 'visitation_manager') {
                 header('Location: visitation_dashboard.php'); 
             } else {

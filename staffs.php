@@ -132,17 +132,17 @@ $username = $_SESSION['username'];
         <img src="icons/home.png" alt="Dashboard" class="icon"> Home
     </a>
     <div class="spacer" style='height:30px'></div>
-    <a href="user_profile.php">
+    <!-- <a href="user_profile.php">
         <img src="icons/person.png" alt="Add Inmate" class="icon"> My Profile
     </a>
     <div class="spacer" style='height:30px'></div>
     <a href="visit_request.php">
         <img src="icons/visit.png" alt="Add Staff" class="icon"> Visitation
-    </a>
+    </a> -->
     <div class="spacer" style='height:30px'></div>
    
     <div class="spacer" style='height:30px'></div>
-    <a href="logout.php" onclick="return confirm('Are You sure you want to LogOut?')">
+    <a href="logout.php" onclick="return confirm('Are You sure you want to LogOut?')" style="position:fixed;width:250px; bottom:0">
         <img src="icons/logout.png" alt="Logout" class="icon"> Logout
     </a>
 </div>

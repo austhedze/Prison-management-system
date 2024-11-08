@@ -2,7 +2,7 @@
 include "connection.php";
 session_start();
 
-if ($_SESSION['role'] != 'admin') {
+if ($_SESSION['role'] != 'main_admin') {
     header('Location: login.php');
     exit;
 }
@@ -11,9 +11,9 @@ if ($_SESSION['role'] != 'admin') {
 $username = $_SESSION['username'];
     
 // Fetch user details from the database
- $sql = "SELECT * FROM users WHERE username = '$username' AND role='admin'";
+ $sql = "SELECT * FROM users WHERE username = '$username' AND role='main_admin'";
  $result = mysqli_query($conn, $sql);
- $admin = mysqli_fetch_assoc($result);
+ $main_admin = mysqli_fetch_assoc($result);
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -186,21 +186,21 @@ $conn->close();
             <div class="logo">
                 <img src="images/logo.jpg" alt="Logo">
             </div>
-            <div class="spacer" style="height:52px"></div>
+            <div class="spacer" style="height:80px"></div>
             <nav class="sidebar-nav">
                 <a href="reports.php">
                     <img src="icons/dash.png" alt="Dashboard Icon" class="nav-icon"> Dashboard
                 </a>
-                <div class="spacer" style="height:52px"></div>
+                <div class="spacer" style="height:60px"></div>
                 <a href="admin_profile.php">
                     <img src="icons/person.png" alt="Profile Icon" class="nav-icon"> My Profile
                 </a>
-                <div class="spacer" style="height:52px"></div>
+                <div class="spacer" style="height:60px"></div>
                 <a href="admin.php">
                     <img src="icons/logs.png" alt="Logs Icon" class="nav-icon"> Logs
                 </a>
-                <div class="spacer" style="height:55px"></div>
-                <a href="logout.php" onclick="return confirm('You are about to be signed-out, continue?')">
+                <div class="spacer" style="height:60px"></div>
+                <a href="logout.php" onclick="return confirm('You are about to be signed-out, continue?')" style="position:fixed; bottom:5px; width:200px">
                     <img src="icons/logout.png" alt="Logout Icon" class="nav-icon"> Logout
                 </a>
             </nav>
@@ -208,7 +208,7 @@ $conn->close();
 
         <main class="main-content">
         <div>
-                    <img src="<?php echo $admin['admin_profile_picture'] && file_exists($admin['admin_profile_picture']) ? $admin['admin_profile_picture'] : 'icons/person.png'; ?>"
+                    <img src="<?php echo $main_admin['main_admin_profile_picture'] && file_exists($main_admin['main_admin_profile_picture']) ? $main_admin['main_admin_profile_picture'] : 'icons/person.png'; ?>"
                         class="avatar" alt="Avatar">
                 </div>
             <div class="card">
@@ -221,9 +221,9 @@ $conn->close();
                     <div class="form-group">
                         <label for="role">Role:</label>
                         <select name="role" id="role" required>
-                            <option value="user">User</option>
+                            <option value="user">Ordinary User</option>
                             <option value="admin">Admin</option>
-                            <option value="warder">Warder</option>
+                            <option value="main_admin">Main Admin</option>
                             <option value="visitation_manager">Visitation Manager</option>
                         </select>
                     </div>

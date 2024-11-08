@@ -36,8 +36,10 @@ if (isset($_POST['update'])) {
     // Update admin information
     $sql = "UPDATE users SET firstname='$firstname', lastname='$lastname', admin_profile_picture='$target_file' WHERE username='$username'";
     if (mysqli_query($conn, $sql)) {
-        echo '<script>alert("Profile updated successfully!");</script>';
-        header('Location: admin.php'); 
+        echo '<script>alert("Profile updated successfully!");
+        window.location.href="admin.php";
+        </script>';
+       
         exit;
     } else {
         echo '<script>alert("Error updating profile: ' . mysqli_error($conn) . '");</script>';
@@ -51,9 +53,8 @@ if (isset($_POST['update'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin Profile update -page </title>
+    <title>Admin Profile update -page </title>
     <style>
-
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -61,7 +62,7 @@ if (isset($_POST['update'])) {
         background-color: #f5f6fa;
     }
 
-   
+
     .sidebar {
         width: 20%;
         background-color: #2c2c3e;
@@ -87,7 +88,7 @@ if (isset($_POST['update'])) {
         color: white;
         text-decoration: none;
         border-radius: 4px;
-        background-color: #3c3c4e;
+        background-color: #323554;
         transition: background-color 0.3s;
         font-size: 16px;
     }
@@ -107,7 +108,7 @@ if (isset($_POST['update'])) {
     .container {
         display: flex;
         height: 100vh;
-    
+
 
     }
 
@@ -154,7 +155,7 @@ if (isset($_POST['update'])) {
     }
 
     button {
-        background-color:grey;
+        background-color: grey;
         color: white;
         border: none;
         padding: 10px;
@@ -166,7 +167,6 @@ if (isset($_POST['update'])) {
     button:hover {
         background-color: red;
     }
-
     </style>
 </head>
 
@@ -184,16 +184,16 @@ if (isset($_POST['update'])) {
                 <img src="icons/dash.png" alt="Dashboard" class="icon"> Dashboard
             </a>
             <div class="spacer" style='height:30px'></div>
-            <a href="admin_profile.php">
-                <img src="icons/person.png" alt="Add Inmate" class="icon"> My Profile
+            <a href="adduser.php">
+                <img src="icons/add.png" alt="Add Inmate" class="icon"> Add Inmate
             </a>
             </a>
             <div class="spacer" style='height:30px'></div>
-            <a href="staffs.php">
-                <img src="icons/staff.png" alt="Add Staff" class="icon"> View Staff
+            <a href="add_staff.php">
+                <img src="icons/staff.png" alt="Add Staff" class="icon"> Add Staff
             </a>
             <div class="spacer" style='height:30px'></div>
-            
+
             <div class="spacer" style='height:30px'></div>
             <a href="logout.php" onclick="return confirm('Are You sure you want to LogOut?')">
                 <img src="icons/logout.png" alt="Logout" class="icon"> Logout
@@ -210,17 +210,19 @@ if (isset($_POST['update'])) {
                 <h2 style="color:grey">Update Profile</h2>
                 <form method="POST" enctype="multipart/form-data">
                     <label for="firstname" style="color:whitesmoke">First Name:</label>
+
                     <input type="text" name="firstname" value="<?php echo htmlspecialchars($admin['firstname']); ?>"
                         required>
 
-                    <label for="lastname" style="color:whitesmoke" >Last Name:</label>
+                    <label for="lastname" style="color:whitesmoke">Last Name:</label>
                     <input type="text" name="lastname" value="<?php echo htmlspecialchars($admin['lastname']); ?>"
                         required>
 
                     <label for="profile_picture" style="color:whitesmoke">Profile Picture:</label>
                     <input type="file" name="admin_profile_picture">
 
-                    <button type="submit" name="update" style="background-color:grey" id="update-btn">Update Profile</button>
+                    <button type="submit" name="update" style="background-color:grey" id="update-btn">Update
+                        Profile</button>
                 </form>
             </div>
         </div>

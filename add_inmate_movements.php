@@ -27,8 +27,8 @@ if (isset($_POST['submit'])) {
             if ($result) {
                 echo '
                 <script>
-                alert("Prisoner information added successfully with image!");
-                window.location.href="warder.php";
+                alert("Prisoner information added successfully!");
+                window.location.href="admin.php";
                 </script>
                 ';
             } else {

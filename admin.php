@@ -12,9 +12,18 @@ $username = $_SESSION['username'];
 // Fetch user details from the database
  $sql = "SELECT * FROM users WHERE username = '$username' AND role='admin'";
  $result = mysqli_query($conn, $sql);
- $admin = mysqli_fetch_assoc($result);
+ $admin= mysqli_fetch_assoc($result);
 
 
+ // Fetch total inmates
+$inmateCountQuery = "SELECT COUNT(*) AS total_inmates FROM inmate";
+$inmateCountResult = mysqli_query($conn, $inmateCountQuery);
+$inmateCount = mysqli_fetch_assoc($inmateCountResult)['total_inmates'];
+
+// Fetch total staff
+$staffCountQuery = "SELECT COUNT(*) AS total_staff FROM staffmanagement";
+$staffCountResult = mysqli_query($conn, $staffCountQuery);
+$staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 ?>
 
 
@@ -24,7 +33,7 @@ $username = $_SESSION['username'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin Panel - Prison Management System</title>
+    <title>Admin Panel - Prison Management System</title>
     <link href="pixels/admin.css" rel="stylesheet" type="text/css" />
     <style>
     body {
@@ -67,7 +76,7 @@ $username = $_SESSION['username'];
         text-decoration: none;
         margin-bottom: 10px;
         border-radius: 4px;
-        background-color: #3c3c4e;
+        background-color: #323554;
     }
 
     .sidebar a:hover {
@@ -178,6 +187,81 @@ $username = $_SESSION['username'];
 
 
 
+    /*----------------*/
+    .card-container {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 15px;
+        margin-top: 20px;
+
+
+
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .card h2,
+    .card p {
+        margin: 10px 0;
+        color: #323554;
+
+    }
+
+    .card p {
+        font-size: 14px;
+
+        line-height: 1.5;
+
+    }
+
+    .card .actions {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .card .button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+
+    }
+
+    .button.add {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .button.delete {
+        background-color: orangered;
+        color: white;
+    }
+
+    .button.update {
+        background-color: #323554;
+        color: white;
+    }
+
+
 
     h1.section-title {
         font-size: 24px;
@@ -218,24 +302,20 @@ $username = $_SESSION['username'];
         margin-top: 30px;
     }
 
-    .stats {
-    display: flex;
-    gap: 20px;
-    padding: 20px 0;
-    justify-content: flex-start; 
-}
+    .stat-card {
+        flex: 1;
+        background-color: #3c3c4e;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        color: #f58a42;
+    }
 
-.stat-card {
-    width: 300px; 
-    background-color: #3c3c4e;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    color: #f58a42;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+    .stats {
+        display: flex;
+        gap: 20px;
+        padding: 20px 0;
+    }
 
     .avatar {
         width: 50px;
@@ -248,15 +328,21 @@ $username = $_SESSION['username'];
         position: absolute;
 
     }
-    .stat-card img.icon {
-    width: 70px;
-    height: 70px;
-    margin-right: 10px;
-    left:0;
-    vertical-align: middle;
-}
+    .button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
     </style>
+    <link rel="stylesheet" href="pixels/openBox.css" type="text/css"/>
+    
 </head>
 
 <body>
@@ -264,39 +350,39 @@ $username = $_SESSION['username'];
 
     <div class="sidebar" style="background-color: #2c2c3e;">
 
-        <img src='icons/admin.png' style='width: 100px; height:100px; border-radius:45px'>
+        <img src='images/logo.jpg' style='width: 100px; height:100px; border-radius:45px'>
         <div class="spacer" style='height:50px'>
 
         </div>
-        <a href="reports.php">
+        <a href="#">
             <img src="icons/dash.png" alt="Dashboard" class="icon"> Dashboard
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="admin_profile.php">
-            <img src="icons/person.png" alt="Add Inmate" class="icon"> My Profile
+        <a href="adduser.php">
+            <img src="icons/addinmate.png" alt="Add Inmate" class="icon"> Add Inmate
         </a>
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="staffs.php" onclick="return confirm('You are about to logout, Continue ?')">
-            <img src="icons/staff.png" alt="Add Staff" class="icon"> View Staff
+        <a href="add_staff.php">
+            <img src="icons/staff.png" alt="Add Staff" class="icon"> Add Staff
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="reports.php">
-            <img src="icons/reports.png" alt="Add Inmate Movements" class="icon">Analytics
+        <a href="add_inmate_movements.php">
+            <img src="icons/movement.png" alt="Add Inmate Movements" class="icon">Inmate Movements
         </a>
         <div class="spacer" style='height:30px'></div>
-        <a href="logout.php" onclick="return confirm('Are You sure you want to LogOut?')">
+        <a href="logout.php" onclick="openConfirmBox(event)">
             <img src="icons/logout.png" alt="Logout" class="icon"> Logout
         </a>
     </div>
 
-    <div class="main-content" style='  background-color: #1e1e2f; padding-right:10px;right:0'>
+    <div class="main-content" style='  background-color: #1e1e2f;'>
 
         <div class="admin-header">
 
             <div class="header-text">
 
-                <h2>Welcome , <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</h2>
+                <h2>Welcome Admin, <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</h2>
             </div>
             <a href="admin_profile.php">
 
@@ -311,64 +397,241 @@ $username = $_SESSION['username'];
         <!---------start cards--------->
 
         <section class="stats">
-        <a href="auth_logs.php" style="text-decoration: none; color: inherit; display:block">
-        <div class="stat-card">
-            <img src="icons/loginlogs.png" alt="Login Audit logs Icon" class="icon">
-            <h3>Login Audit logs</h3>
-        </div>
-    </a>
-
-    <a href="delete_logs.php" style="text-decoration: none; color: inherit; display:block">
-         <div class="stat-card">
-            <img src="icons/deletelogs.png" alt="Total Inmates Icon" class="icon">
-                <h3>Deletion logs</h3>
-            
-            </div>
-</a>
-        </section>
-
-
-
-        <section class="stats">
-        <a href="adding_logs.php" style="text-decoration: none; color: inherit; display:block">
             <div class="stat-card">
-            <img src="icons/addlogs.png" alt="Total Inmates Icon" class="icon">
-                <h3>Adding logs</h3>
-            
-                  </div>
-</a>
-<a href="visitation_logs.php" style="text-decoration: none; color: inherit; display:block">
+                <h3>Total Inmates</h3>
+                <p><?php echo $inmateCount; ?></p>
+
+            </div>
             <div class="stat-card">
-            <img src="icons/visitation.png" alt="Total Inmates Icon" class="icon">
-                <h3>Visitation logs</h3>
-
+                <h3>Total Staff</h3>
+                <p><?php echo $staffCount; ?></p>
             </div>
-</a>
-        </section>
-        <section>
-        <a href="update_logs.php" style="text-decoration: none; color: inherit; display:block">
-            <div class="stat-card" style="width:655px; justify-content:center; align-items:center">
-            <img src="icons/updatelogs.png" alt="Total Inmates Icon" class="icon">
-                <h3>Data manipulation logs</h3>
-
-            </div>
-</a>
         </section>
 
 
-
-        <h1 class="section-title" style="font-size: 30px;color:grey; text-align: LEFT;"></h1>
+        <h1 class="section-title" style="font-size: 30px;color:grey; text-align: LEFT;">Case Management</h1>
 
         <div class="spacer" style='height:20px'></div>
+       
+       
+        <div class="card">
+       
+             <table>
+                <tr>
+                    <th>photo</th>
+                    <th>Inmate Name</th>
+                    <th>Offense</th>
+                    <th>Original Sentence</th>
+                    <th>Sentence After Reduction</th>
+                    <th>Court Appearances</th>
+                    <th>Reg.no</th>
+                    <th>Release Date</th>
+                    <th>Operations</th>
+                </tr>
+                <tbody>
+                    <?php
+                // Fetch inmate data with court appearance, sentence, and release date logic
+                $sql = "SELECT * FROM `inmate`";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id = $row['id'];
+                        $first_name = $row['first_name'];
+                        $last_name = $row['last_name'];
+                        $offense = $row['offense'];
+                        $sentence_years = $row['sentence_years'];
+                        $age = $row['age'];
+                        $gender = $row['sex'];
+                        $court_appearances = $row['court_appearances'];
+                        $release_date = $row['release_date'];
+                        $pleaded_guilty = $row['pleaded_guilty']; 
+                        $reg_number = $row['reg_number'];
+                        $photo_path = $row['image_path']; 
+
+                    
+
+    //pply sentence red.rule
+    
+    $reduced_sentence = $sentence_years;
+
+    if ($age >= 50 && $offense != 'rape' || $offense != 'murder') {
+        $reduced_sentence = $sentence_years / 2;
+    } elseif ($gender == 'Female') {
+        $reduced_sentence = $sentence_years / 2;
+    }
+    
+    if ($pleaded_guilty == 'yes') {
+        $reduced_sentence *= 0.75;
+    }
+    
+    
+
+                        echo '<tr>
+                        <td>  <img src="' . $photo_path . '" alt="Staff Image" style="width:50px; height:50px"></td>
+                            <td>' . $first_name . ' ' . $last_name . '</td>
+                            <td>' . $offense . '</td>
+                            <td>' . $sentence_years . ' years</td>
+                            <td>' . $reduced_sentence . ' years</td>
+                            <td>' . $court_appearances . '</td>
+                             <td>' . $reg_number . '</td>
+                            <td>' . $release_date . '</td>
+                            <td>
+
+                    <a href="deleteUser.php?deleteID='.$id.'"><button class="button delete">delete</button></a>
+                     <a href="updatePrisoner.php?updateID='.$id.'"><button class="button update">Update</button></a>
+                    </td>
+
+                    </tr>';
+                    }
+                    } else {
+                    die(mysqli_error($conn));
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+     <!---THE SECTION FOR INMATE MANAGEMENT---->
+     <div class="main-content" id='inmate_management'>
+        <h1 style="color:grey">Inmate Movements Overview</h1>
+
+        <div class="card">
+          
+           
+            <table>
+                <tr>
+                <th>photo</th>
+                    <th>Inmate Name</th>
+                    <th>Disciplinary Records</th>
+                    <th>Previous Cell</th>
+                    <th>New Cell</th>
+                    <th>Reason for Transfer</th>
+                    <th>Operations</th>
+                </tr>
+                <tbody>
+                    <?php
+                    // Fetch inmate data along with disciplinary records and movements
+                    $sql = "SELECT * FROM inmateManagement";
+                    $result = mysqli_query($conn, $sql);
+
+                    if ($result) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $id = $row['id'];
+                            $inmate_name = $row['inmate_name'];
+                            $disciplinary_records = $row['disciplinary_records'];
+                            $previous_cell = $row['previous_cell'];
+                            $new_cell = $row['new_cell'];
+                            $transfer_reason = $row['transfer_reason'];
+                            $inmate_image = $row['inmate_image']; 
+
+                            echo '<tr>
+                            <td> <img src="' . $inmate_image . '" alt="Staff Image" style="width:50px; height:50px"></td>
+                                <td>' . $inmate_name . '</td>
+                                <td>' . $disciplinary_records . '</td>
+                                <td>' . $previous_cell . '</td>
+                                <td>' . $new_cell . '</td>
+                                <td>' . $transfer_reason . '</td>
+                                <td>
+                                    <a href="delete_movement.php?deleteID=' . $id . '"><button class="button delete">Delete</button></a>
+                                    <a href="update_movement.php?updateID=' . $id . '"><button class="button update">Update</button></a>
+                                </td>
+                            </tr>';
+                        }
+                    } else {
+                        die(mysqli_error($conn));
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 
 
+    <!------------STAFF MANAGEMENT SECTION-------------->
+    <div class="main-content" id='staff-id'>
+    <h2 style="color:grey">Staff Management</h2>
+    <div class="card">
 
+    <table style="left:20px; width:100%">
+        <tr>
+            <th>photo</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>Role</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <!-- <th>Phone</th> -->
+            <th>Email</th>
+            <th>Hire Date</th>
+            <th>Operations</th>
+        </tr>
+        <tbody>
+            <?php
+            // Fetch staff data
+            $sql = "SELECT * FROM staffManagement";
+            $result = mysqli_query($conn, $sql);
 
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id = $row['id'];
+                    //$full_name = $row['first_name'] . ' ' . $row['last_name'];
+                    $row['first_name'];
+                    $row['last_name'];
+                    $role = $row['role'];
+                    $age = $row['age'];
+                    $gender = $row['gender'];
+                    // $phone = $row['phone'];
+                    $email = $row['email'];
+                    $hire_date = $row['hire_date'];
+                    $photo_path = $row['image_path'];
 
+                    echo '<tr>
+                <td> <img src="' . $photo_path . '" alt="Staff Image" style="width:50px; height:50px"></td>
+                     <td>' . $first_name . '</td>
+                       <td>' . $last_name . '</td>
+                        <td>' . $role . '</td>
+                        <td>' . $age . '</td>
+                        <td>' . $gender . '</td>
+                        
+                        <td>' . $email . '</td>
+                        <td>' . $hire_date . '</td>
+                        <td>
+                            <a href="delete_staff.php?deleteID='.$id.'"><button class="button delete">Delete</button></a>
+                            <a href="update_staff.php?updateID='.$id.'"><button class="button update">Update</button></a>
+                        </td>
+                    </tr>';
+                }
+            } else {
+                die(mysqli_error($conn));
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+    </div>
 
-
+<!-- Custom confirmation modal -->
+<div id="confirmModal" class="modal">
+  <div class="modal-content">
+    <p>You are about to sign out. Continue?</p>
+    <button onclick="confirmAction()">Yes</button>
+    <button onclick="closeConfirmBox()">No</button>
+  </div>
+</div> 
+<script>
+    
+function confirmAction() {
+  // Redirect to the desired page
+  window.location.href = "logout.php";
+}
+</script>
+<script src="scripts/openBox.js"></script>
 </body>
 
 </html>

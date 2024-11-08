@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
         echo '
         <script>
         alert("Prisoner information updated successfully!");
-        window.location.href="warder.php";
+        window.location.href="admin.php";
         </script>
         ';
     } else {

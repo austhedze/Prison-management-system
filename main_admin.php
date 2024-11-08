@@ -2,7 +2,7 @@
 include 'connection.php';
 session_start();
 
-if ($_SESSION['role'] != 'admin') {
+if ($_SESSION['role'] != 'main_admin') {
     header('Location: login.php');
     exit;
 }
@@ -10,9 +10,9 @@ if ($_SESSION['role'] != 'admin') {
 $username = $_SESSION['username'];
     
 // Fetch user details from the database
- $sql = "SELECT * FROM users WHERE username = '$username' AND role='admin'";
+ $sql = "SELECT * FROM users WHERE username = '$username' AND role='main_admin'";
  $result = mysqli_query($conn, $sql);
- $admin = mysqli_fetch_assoc($result);
+ $main_admin = mysqli_fetch_assoc($result);
 
 
 
@@ -62,7 +62,7 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports</title>
+    <title>Main Admin Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <style>
     
@@ -89,6 +89,10 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
         display: flex;
         flex-direction: column;
         height: 900px;
+        position:fixed;
+        left:0;
+        overflow:hidden;
+        padding-right:2px;
 
     }
 
@@ -115,6 +119,7 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
         flex-grow: 1;
         padding: 20px;
         background-color: #262637;
+        padding-left:350px;
     }
 
     .header {
@@ -215,21 +220,21 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
                 <a href="#">
                     <img src="icons/dash.png" alt="Cases Icon" class="nav-icon"> Dashboard
                 </a>
-                <div class="spacer" style='height:50px'></div>
-                <a href="admin_profile.php">
+                <div class="spacer" style='height:40px'></div>
+                <a href="main_admin_profile.php">
                     <img src="icons/person.png" alt="Inmate Icon" class="nav-icon"> My Profile
                 </a>
-                <div class="spacer" style='height:50px'></div>
+                <div class="spacer" style='height:40px'></div>
 
                 <a href="assign_role.php">
                     <img src="icons/roles.png" alt="Staff Icon" class="nav-icon"> Assign Roles
                 </a>
-                <div class="spacer" style='height:50px'></div>
-                <a href="admin.php">
+                <div class="spacer" style='height:40px'></div>
+                <a href="main_admin_logs.php">
                     <img src="icons/logs.png" alt="Inmate Icon" class="nav-icon"> Logs
                 </a>
-                <div class="spacer" style='height:50px'></div>
-                <hr>
+                <div class="spacer" style='height:10px'></div>
+                
                 <a href="logout.php" onclick="return confirm('You are about to be signned-out, continue?')">
                     <img src="icons/logout.png" alt="Reports Icon" class="nav-icon"> Logout
                 </a>
@@ -240,10 +245,10 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
         <main class="main-content">
             <header class="header">
                 <div class="greeting">
-                    <p>Welcome , <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</p>
+                    <p>Welcome Main Admin, <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</p>
                 </div>
                 <div class="profile">
-                    <img src="<?php echo $admin['admin_profile_picture'] && file_exists($admin['admin_profile_picture']) ? $admin['admin_profile_picture'] : 'icons/person.png'; ?>"
+                    <img src="<?php echo $main_admin['main_admin_profile_picture'] && file_exists($main_admin['main_admin_profile_picture']) ? $main_admin['main_admin_profile_picture'] : 'icons/person.png'; ?>"
                         alt="Profile" class="profile-icon">
                 </div>
             </header>
