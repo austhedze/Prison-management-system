@@ -220,16 +220,16 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
                 <a href="#">
                     <img src="icons/dash.png" alt="Cases Icon" class="nav-icon"> Dashboard
                 </a>
-                <div class="spacer" style='height:40px'></div>
+                <div class="spacer" style='height:25px'></div>
                 <a href="main_admin_profile.php">
                     <img src="icons/person.png" alt="Inmate Icon" class="nav-icon"> My Profile
                 </a>
-                <div class="spacer" style='height:40px'></div>
+                <div class="spacer" style='height:25px'></div>
 
                 <a href="assign_role.php">
                     <img src="icons/roles.png" alt="Staff Icon" class="nav-icon"> Assign Roles
                 </a>
-                <div class="spacer" style='height:40px'></div>
+                <div class="spacer" style='height:25px'></div>
                 <a href="main_admin_logs.php">
                     <img src="icons/logs.png" alt="Inmate Icon" class="nav-icon"> Logs
                 </a>
@@ -245,7 +245,7 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
         <main class="main-content">
             <header class="header">
                 <div class="greeting">
-                    <p>Welcome Main Admin, <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</p>
+                    <p>Welcome Chief Administrator, <?php echo ucfirst(explode('@', $_SESSION['username'])[0]); ?> !</p>
                 </div>
                 <div class="profile">
                     <img src="<?php echo $main_admin['main_admin_profile_picture'] && file_exists($main_admin['main_admin_profile_picture']) ? $main_admin['main_admin_profile_picture'] : 'icons/person.png'; ?>"
@@ -263,7 +263,7 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
                     <p><?php echo $staffCount; ?></p>
                 </div>
                 <a onclick=" return confirm('continue downloading report?')" style="display:block; text-decoration:none " href="gen_rep.php"><div class="stat-card"  style="height:85px">
-                    <h3>Genereate Report</h3>
+                    <h3>Generate Report</h3>
                    
                 </div></a>
             </section>

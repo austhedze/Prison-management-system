@@ -264,11 +264,13 @@ $username = $_SESSION['username'];
 
     <div class="sidebar" style="background-color: #2c2c3e;">
 
-        <img src='icons/admin.png' style='width: 100px; height:100px; border-radius:45px'>
-        <div class="spacer" style='height:50px'>
+        <div class="logo">
+                <img src='images/logo.jpg' style="width:100px; height:100px; border-radius:20px;" />
+            </div>
+        <div class="spacer" style='height:40px'>
 
         </div>
-        <a href="#">
+        <a href="main_admin.php">
             <img src="icons/dash.png" alt="Dashboard" class="icon"> Dashboard
         </a>
         <div class="spacer" style='height:30px'></div>
@@ -349,7 +351,7 @@ $username = $_SESSION['username'];
         <a href="update_logs.php" style="text-decoration: none; color: inherit; display:block">
             <div class="stat-card" style="width:655px; justify-content:center; align-items:center">
             <img src="icons/updatelogs.png" alt="Total Inmates Icon" class="icon">
-                <h3>Data manipulation logs</h3>
+                <h3>Updated logs</h3>
 
             </div>
 </a>

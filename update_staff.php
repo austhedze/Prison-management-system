@@ -3,7 +3,7 @@ include 'connection.php';
 
 if (isset($_POST['submit'])) {
     $id =  $_GET['updateID'];
-    $staff_first_name = $_POST['staff_first_name'];
+    $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $role = $_POST['role'];
     $age = $_POST['age'];
@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     
     $sql = "UPDATE staffManagement 
     SET 
-        staff_first_name = '$staff_first_name', 
+        first_name = '$first_name', 
         last_name = '$last_name', 
         role = '$role', 
         age = '$age', 
@@ -141,7 +141,7 @@ if (isset($_POST['submit'])) {
             <div class="form-grid">
                 <div class="input-group">
                     <label for="first_name">First Name</label>
-                    <input type="text" id="first_name" name="staff_first_name" required>
+                    <input type="text" id="first_name" name="first_name" required>
                 </div>
 
                 <div class="input-group">

@@ -188,15 +188,15 @@ $conn->close();
             </div>
             <div class="spacer" style="height:80px"></div>
             <nav class="sidebar-nav">
-                <a href="reports.php">
+                <a href="main_admin.php">
                     <img src="icons/dash.png" alt="Dashboard Icon" class="nav-icon"> Dashboard
                 </a>
                 <div class="spacer" style="height:60px"></div>
-                <a href="admin_profile.php">
+                <a href="main_admin_profile.php">
                     <img src="icons/person.png" alt="Profile Icon" class="nav-icon"> My Profile
                 </a>
                 <div class="spacer" style="height:60px"></div>
-                <a href="admin.php">
+                <a href="main_admin_logs.php">
                     <img src="icons/logs.png" alt="Logs Icon" class="nav-icon"> Logs
                 </a>
                 <div class="spacer" style="height:60px"></div>
@@ -223,7 +223,7 @@ $conn->close();
                         <select name="role" id="role" required>
                             <option value="user">Ordinary User</option>
                             <option value="admin">Admin</option>
-                            <option value="main_admin">Main Admin</option>
+                            <option value="main_admin">Chief Admin</option>
                             <option value="visitation_manager">Visitation Manager</option>
                         </select>
                     </div>

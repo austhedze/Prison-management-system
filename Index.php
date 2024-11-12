@@ -12,7 +12,7 @@
 <center>
 
   <div class="index-card">
-  <P style="opacity: 0.8; font-size: 30px"><b><span style="color: white">Welcome user</span>,<span style="color:white"> sigIn or signup.....</span></b></P>
+  <P style="opacity: 0.8; font-size: 30px"><b><span style="color: white">Welcome user</span>,<span style="color:white"> signIn or signup.....</span></b></P>
       <br><br>
        <center>
        <div class="buttons">

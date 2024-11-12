@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $hire_date = $_POST['hire_date'];
-    $staff_first_name = $_POST['staff_first_name'];
+    $first_name = $_POST['first_name'];
 
     // Handle the image upload
     $target_dir = "uploads/";
@@ -44,8 +44,8 @@ if (isset($_POST['submit'])) {
     if ($upload_ok && move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
         
         // Insert into database with image path
-        $sql = "INSERT INTO staffManagement (staff_first_name, last_name, role, age, gender, phone, email, hire_date, image_path) 
-                VALUES ('$staff_first_name', '$last_name', '$role', '$age', '$gender', '$phone', '$email', '$hire_date', '$target_file')";
+        $sql = "INSERT INTO staffManagement (first_name, last_name, role, age, gender, phone, email, hire_date, image_path) 
+                VALUES ('$first_name', '$last_name', '$role', '$age', '$gender', '$phone', '$email', '$hire_date', '$target_file')";
         
         $result = mysqli_query($conn, $sql);
 
@@ -158,7 +158,7 @@ if (isset($_POST['submit'])) {
             <div class="form-grid">
                 <div class="input-group">
                     <label for="first_name">First Name</label>
-                    <input type="text" id="first_name" name="staff_first_name" required>
+                    <input type="text" id="first_name" name="first_name" required>
                 </div>
 
                 <div class="input-group">
@@ -170,7 +170,7 @@ if (isset($_POST['submit'])) {
                     <label for="role">Role</label>
                     <select id="role" name="role" required>
                         <option value="Admin">Admin</option>
-                        <option value="Main Admin">Main Admin</option>
+                        <option value="Chief Administrator">Chief Administrator</option>
                         <option value="Visitation Manager">Visitation Manager</option>
                     </select>
                 </div>

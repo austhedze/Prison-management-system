@@ -166,7 +166,7 @@ $username = $_SESSION['username'];
         if ($result) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $id = $row['id'];
-                $first_name = $row['staff_first_name'];
+                $first_name = $row['first_name'];
                 $last_name = $row['last_name'];
                 $role = $row['role'];
                 $age = $row['age'];

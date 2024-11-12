@@ -224,11 +224,11 @@ if (isset($_POST['request'])) {
             <img src="icons/home.png" alt="My Visit Requests Icon" class="icon"> Home
         </a>
         <div class="spacer" style="height: 30px;"></div>
-        <a href="request_visit.php">
+        <a href="#request_visit">
             <img src="icons/request.png" alt="Visit Icon" class="icon"> Request Visit
         </a>
         <div class="spacer" style="height: 20px;"></div>
-        <a href="#">
+        <a href="#my_visit_request">
             <img src="icons/request.png" alt="My Visit Requests Icon" class="icon"> My Visit Requests
         </a>
         <div class="spacer" style="height: 20px;"></div>
@@ -240,7 +240,7 @@ if (isset($_POST['request'])) {
 
     <!-- Main Content -->
     <div class="main-content">
-
+        <section id="request_visit">
         <div class="container">
             <form method="POST">
                 <h2 style='color:grey'>Request a Visit</h2>
@@ -271,8 +271,10 @@ if (isset($_POST['request'])) {
                 </div>
             </form>
         </div>
+        </section>
 
         <!-- Visit Requests Table -->
+         <section id="my_visit_request">
         <div class="container">
             <h2 style='color:grey'> My Visit Requests</h2>
             <table>
@@ -283,7 +285,7 @@ if (isset($_POST['request'])) {
                         <th>Visit Date</th>
                         <th>Visit Time</th>
                         <th>Status</th>
-                        <th>Reason</th>
+                        <th>Reason for rejection</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -310,6 +312,7 @@ if (isset($_POST['request'])) {
                 </tbody>
             </table>
         </div>
+                </section>
     </div>
 
 </body>

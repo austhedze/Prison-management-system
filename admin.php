@@ -420,10 +420,12 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
                 <tr>
                     <th>photo</th>
                     <th>Inmate Name</th>
+                    <th>Sex</th>
+                    <th>Age</th>
                     <th>Offense</th>
                     <th>Original Sentence</th>
-                    <th>Sentence After Reduction</th>
-                    <th>Court Appearances</th>
+                    <th>Reduced Sentence</th>
+                    <th>Court Appea<br>rance</th>
                     <th>Reg.no</th>
                     <th>Release Date</th>
                     <th>Operations</th>
@@ -451,21 +453,7 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 
                     
 
-    //pply sentence red.rule
-    
-    // $reduced_sentence = $sentence_years;
-
-    // if ($age >= 50 && $offense != 'rape' || $offense != 'murder') {
-    //     $reduced_sentence = $sentence_years / 2;
-    // } elseif ($gender == 'Female') {
-    //     $reduced_sentence = $sentence_years / 2;
-    // }
-    
-    //if ($pleaded_guilty == 'yes') {
-       //  $reduced_sentence *= 0.75;
-     //}
-    
-    //  // Apply sentence reduction rule
+    // Apply sentence reduction rule
       $reduced_sentence = $sentence_years;
 
     //  // Apply age and offense reduction if condtns are met
@@ -488,6 +476,8 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
                         echo '<tr>
                         <td>  <img src="' . $photo_path . '" alt="Staff Image" style="width:50px; height:50px"></td>
                             <td>' . $first_name . ' ' . $last_name . '</td>
+                            <td>' . $gender . '</td>
+                              <td>' . $age . '</td>
                             <td>' . $offense . '</td>
                             <td>' . $sentence_years . ' years</td>
                             <td>' . $reduced_sentence . ' years</td>
@@ -515,7 +505,7 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 
      <!---THE SECTION FOR INMATE MANAGEMENT---->
      <div class="main-content" id='inmate_management'>
-        <h1 style="color:grey">Inmate Movements Overview</h1>
+        <h1 style="color:grey">Inmate Movements</h1>
 
         <div class="card">
           
@@ -578,9 +568,9 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
 
     <table style="left:20px; width:100%">
         <tr>
-            <th>photo</th>
-            <th>firstName</th>
-            <th>lastName</th>
+            <th>Photo</th>
+            <th>FirstName</th>
+            <th>LastName</th>
             <th>Role</th>
             <th>Age</th>
             <th>Gender</th>
@@ -599,8 +589,8 @@ $staffCount = mysqli_fetch_assoc($staffCountResult)['total_staff'];
                 while ($row = mysqli_fetch_assoc($result)) {
                     $id = $row['id'];
                     //$full_name = $row['first_name'] . ' ' . $row['last_name'];
-                    $row['first_name'];
-                    $row['last_name'];
+                    $first_name = $row['first_name'];
+                    $last_name = $row['last_name'];
                     $role = $row['role'];
                     $age = $row['age'];
                     $gender = $row['gender'];
